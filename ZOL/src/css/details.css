@@ -1,0 +1,695 @@
+.top{
+    height: 29px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #f5f5f5;
+}
+.top-wrap {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+/* 登录、注册 */
+.top-wrap .login{
+    height: 100%;
+    float: left;
+}
+.top-wrap .login span{
+    float: left;
+    color: #666;
+    padding: 0 20px 0 0;
+    font-size: 12px;
+    line-height: 29px;
+}
+.zc-login, .zc-registry {
+    color: #36c;
+}
+/* 快捷菜单 */
+.menu {
+    float: right;
+    height: 100%;
+}
+.menu li {
+    float: left;
+    margin: 0 10px;
+    font-size: 12px;
+    height: 100%;
+    line-height: 29px;
+}
+.menu li a{
+    display: block;
+    height: 100%;
+}
+/* 卖家中心 */
+.menu .item {
+    margin: 0;
+    position: relative;
+}
+.menu .item .item-a{
+    padding: 0 23px 0 10px;
+}
+.menu .item .item-a .ico{
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    display: block;
+    float: left;
+    width: 7px;
+    height: 4px;
+    background: url(../img/topbar_ico.png) 0 -45px no-repeat;
+}
+.menu .item .my-center {
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 29px;
+    width: 88px;
+    padding: 3px 9px;
+    border: 1px solid #ededed;
+    display: none;
+}
+ .menu .item .my-center em {
+    color: red;
+}
+ .menu .item:hover .item-a{
+    background: #fff;
+}
+ .menu .item:hover i{
+    background: url(../img/topbar_ico.png) 0 -35px no-repeat;
+}
+ .menu .item:hover .my-center{
+    display: block;
+}
+/* 手机商城 */
+ .menu .item .item-bg {
+    padding: 0 23px 0 25px;
+    background: url(../img/topbar_ico.png) no-repeat;
+
+}
+ .menu .item .mobile{
+    width: 130px;
+    height: 130px;
+    padding: 20px;
+}
+ .menu .item .mobile img{
+    width: 100%;
+    height: 100%;
+}
+ .menu .item:hover .item-bg{
+    background: url(../img/topbar_ico.png) no-repeat #fff;
+}
+/* 联系客服 */
+ .menu .item .service {
+    width: 80px;
+    text-align: right;
+    left: -18px;
+}
+
+/* log */
+.logo {
+    padding: 30px 0;
+    height: 50px;
+    background: #fff;
+}
+.logo .content {
+    width: 1200px;
+    margin: 0 auto;
+}
+.logo .content h1 a {
+    display: block;
+    height: 50px;
+    width: 200px;
+    float: left;
+    background: url(../img/zol-tuan.png) no-repeat;
+}
+/* 订单、购物车、优惠券 */
+.logo .order {
+    float: right;
+    margin: 0 0 0 65px;
+    padding: 7px 0 0;
+}
+.logo .order a {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    float: right;
+    margin: 0 0 0 20px;
+    position: relative;
+    font-size: 14px;
+    color: #333;
+}
+.logo .order .car {
+    padding: 0 0 0 25px;
+}
+.logo .order i{
+    display: block;
+    position: absolute;
+    top: 9px;
+    left: 0;
+}
+/* 购物车 */
+.logo .order .car .car-i {
+    width: 18px;
+    height: 18px;
+    background: url(../img/head.png) 0 -211px no-repeat;
+}
+.logo .order .car:hover{
+    color: #f33;
+}
+.logo .order .car:hover .car-i{
+    background-position-x: -32px
+}
+.logo .order .car .num {
+    position: absolute;
+    left: 12px;
+    top: 1px;
+    padding: 0 3px;
+    height: 13px;
+    font-size: 12px;
+    color: #fff;
+    background: #f33;
+    border-radius: 10px;
+    line-height: 13px;
+}
+/* 优惠券 */
+.logo .order .car .coupon-i {
+    width: 22px;
+    height: 18px;
+    background: url(../img/head.png) 0 -190px no-repeat;
+}
+.logo .order .car:hover .coupon-i{
+    background-position-x: -28px;
+}
+/* 我的订单 */
+.logo .order .car .my-order-i {
+    width: 20px;
+    height: 20px;
+    background: url(../img/head.png) 0 -167px no-repeat;
+}
+.logo .order .car:hover .my-order-i{
+    background-position-x: -30px;
+}
+/* 搜索框 */
+.logo .search-wrap {
+    float: right;
+    margin: 7px 0 0;
+}
+.logo .search-wrap .search {
+    position: relative;
+    width: 536px;
+    height: 32px;
+    border: 2px solid #ec3639;
+}
+.logo .search-wrap .search .search-box {
+    width: 441px;
+    height: 20px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    outline: 0;
+}
+.logo .search-wrap .search .search-btn{
+    width: 75px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    color: #fff;
+    background: #ec3639;
+    border: 0;
+    cursor: pointer;
+}
+/* 搜索热词 */
+.logo .search-hot {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+}
+.logo .search-hot li {
+    float: left;
+    margin-right: 20px;
+    line-height: 20px;
+}
+.logo .search-hot li a {
+    color: #999;
+}
+/* 导航栏 */
+nav {
+    background: #fff;
+}
+.nav-wrap{
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 团购、9块9包邮按钮 */
+.nav-wrap .nav-btn{
+    border-bottom: 2px solid #ec3639;
+    padding-left: 180px;
+}
+.nav-wrap .nav-btn li {
+    float: left;
+    padding: 0 30px 0 0;
+    height: 39px;
+    font-size: 18px;
+}
+.nav-wrap .nav-btn li a{
+    float: left;
+    height: 100%;
+    line-height: 39px;
+    padding: 0 10px;
+    color: #333;
+}
+/* 当前选项 */
+.nav-wrap .nav-btn .current a {
+    color: #f33;
+}
+/* 全部分类 */
+.nav-wrap .all-class{
+    float: left;
+    position: relative;
+    margin: -39px 0 0;
+    width: 160px;
+    height: 39px;
+    background: #ec3639;
+    line-height: 37px;
+}
+.nav-wrap .all-class .title {
+    padding: 0 0 0 52px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+.nav-wrap .all-class .title i {
+    position: absolute;
+    left: 26px;
+    top: 14px;
+    width: 12px;
+    height: 10px;
+    background: url(../img/head.png) 0 -154px no-repeat;
+}
+/* 二级菜单 */
+.nav-wrap .secmenu{
+    position: absolute;
+    top: 39px;
+    left: 0;
+    width: 160px;
+    background: #fff;
+    display: none;
+}
+.nav-wrap .secmenu .menu-item{
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background: #454545;
+}
+.nav-wrap .secmenu .menu-item .item-btn{
+    position: relative;
+    margin: -1px 10px 0;
+    padding: 0 0 0 42px;
+    height: 54px;
+    border-top: 1px solid #4d4d4d;
+}
+.nav-wrap .secmenu .menu-item .item-btn h4{
+    position: relative;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 54px;
+}
+.secmenu .menu-item .item-btn h4 a{
+    color: #fff;
+}
+.secmenu .menu-item .item-btn h4 i{
+    width: 6px;
+    height: 11px;
+    position: absolute;
+    top: 23px;
+    right: 12px;
+    background: url(../img/head.png) -44px -154px no-repeat;
+}
+.secmenu .menu-item .item-btn .icon {
+    position: absolute;
+    left: 16px;
+    top: 17px;
+    width: 13px;
+    height: 18px;
+    background: url(../img/head.png) no-repeat;
+}
+.secmenu .menu-item .item-btn .icon2{
+    left: 12px;
+    top: 20px;
+    width: 20px;
+    height: 16px;
+    background-position-y: -21px;
+}
+.secmenu .menu-item .item-btn .icon3 {
+    left: 13px;
+    top: 19px;
+    width: 19px;
+    background-position-y: -133px;
+}
+.secmenu .menu-item .item-btn .icon4 {
+    left: 12px;
+    width: 20px;
+    height: 18px;
+    background-position-y: -40px;
+}
+.secmenu .menu-item .item-btn .icon5 {
+    left: 15px;
+    top: 11px;
+    width: 15px;
+    height: 27px;
+    background-position-y:-61px
+}
+.secmenu .menu-item .item-btn .icon6 {
+    left: 13px;
+    top: 18px;
+    width: 19px;
+    height: 17px;
+    background-position-y: -91px;
+}
+.secmenu .menu-item .item-btn .icon7 {
+    left: 10px;
+    top: 18px;
+    width: 23px;
+    height: 19px;
+    background-position-y: -111px;
+}
+
+/* 主体内容区 */
+section {
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 返回条 */
+.back {
+    width: 100%;
+    height: 32px;
+    color: #999;
+    line-height: 32px;
+}
+/* 主要内容 */
+.main {
+    width: 100%;
+    border: 1px solid #ededed;
+    background: #fff;
+}
+.inner {
+    width: 1000px;
+    float: left;
+}
+.main .detail {
+    float: left;
+}
+/* 放大镜 */
+.main .detail .fdj {
+    float: left;
+    padding: 10px 0 0 20px;
+    width: 400px;
+    position: relative;
+}
+/* 小图 */
+.main .detail .fdj .picbox{
+    float: left;
+    position: relative;
+}
+.main .detail .fdj .picbox .small{
+    width: 100%;
+    display: block;
+}
+.main .detail .fdj .picbox .sf{
+    width: 50px;
+    height: 50px;
+    background: orange;
+    opacity: 0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+/* 大放 */
+.main .detail .fdj .bf{
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    position: absolute;
+    left: 420px;
+    border: 1px solid #ddd;
+    display: none;
+    z-index: 99;
+}
+.main .detail .fdj .bf img{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* 底部的小图列表 */
+.ulist {
+    height: 70px;
+    overflow: hidden;
+    width: 400px;
+}
+.ulist li{
+    float: left;
+    width: 66px;
+    height: 66px;
+    margin: 0 10px 0 0;
+}
+.ulist .show{
+    border: 2px solid #c00;
+}
+.ulist li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/* 放大镜右侧信息 */
+.infor{
+    float: right;
+    padding: 10px 20px 0 0;
+    width: 530px;
+}
+/* 商品标题 */
+.inf-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 7px 0 0;
+    font-weight: 400;
+    line-height: 22px;
+}
+.inf-title .subhead {
+    display: block;
+    color: #999;
+    font-size: 14px;
+}
+/* 团购 */
+.group{
+    height: 48px;
+    background-color: #c00;
+    padding: 0 10px;
+}
+.group .gr-logo{
+    float: left;
+    height: 48px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.group .gr-logo a{
+    display: inline-block;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    color: #fff;
+    vertical-align: middle;
+}
+.group .gr-logo .mall-logo{
+    width: 125px;
+    text-align: right;
+    font-size: 18px;
+    line-height: 46px;
+    background-image: url(http://icon.zol-img.com.cn/newshop/shop/detail/tuan/mall.png);
+    margin-left: -30px;
+}
+.group .gr-logo .tg-logo{
+    width: 44px;
+    background-image: url(http://icon.zol-img.com.cn/newshop/shop/detail/tuan/group.png);
+}
+/* 价格 */
+.price{
+    padding: 5px 10px;
+    background: #f7f7f7;
+    line-height: 30px;
+    height: 30px;
+}
+.tg-price{
+    width: 65px;
+    color: #666;
+    margin-right: 10px;
+}
+/* 新价格 */
+.new{
+    margin: -2px 0 0;
+    height: 32px;
+    overflow: hidden;
+    font-size: 16px;
+    vertical-align: middle;
+    color: #c00;
+    display: inline-block;
+}
+.new i{
+    padding: 0 0 0 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/* 老价格 */
+.old{
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 12px;
+}
+/* 省多少 */
+.save {
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 3px;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #c00;
+    margin-left: 8px;
+}
+/* 交易区块 */
+.deal{
+    padding: 10px 0 20px;
+}
+/* 配送 */
+.delivery{
+    margin: 0 10px;
+    padding: 5px 0 0;
+    width: 510px;
+    height: 30px;
+}
+/* 服务保障 */
+.serve{
+    margin: 0 10px;
+}
+/* 服务保障提供者 */
+.serve .supplier span{
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    color: #666;
+}
+.serve .supplier a {
+    color: #36c;
+}
+/* 保障 */
+.safeguard{
+    padding: 0 0 0 65px;
+}
+.safeguard li {
+    float: left;
+    margin: 0 0 5px;
+    padding: 0 0 0 28px;
+    width: 82px;
+    height: 24px;
+    vertical-align: middle;
+    line-height: 24px;
+}
+.safeguard .iconfont{
+    font-size: 22px;
+    color: #00ae75;
+}
+
+/* 商品配置 */
+.pz {
+    margin: 10px 0px 15px;
+    border-top: 1px solid #f2f2f2;
+    width: 530px;
+}
+.pz .goods-ty{
+    margin-top: 15px;
+    height: 47px;
+    width: 100%;
+    background: #f7f7f7;
+}
+.pz .versions{
+    padding: 0 0 0 0;
+    margin-top: 10px;
+    height: 41px;
+    width: 100%;
+}
+/* 套装 */
+.pz .suit {
+    padding: 15px 0 0;
+    width: 100%;
+    height: 100px;
+}
+/* 数量 */
+.quantity{
+    padding: 20px 0 0;
+}
+.quantity span {
+    height: 32px;
+    line-height: 32px;
+    color: #666;
+    display: block;
+    float: left;
+}
+/* 数量框 */
+.amount {
+    margin: 0 10px 0 0;
+    width: 102px;
+    height: 28px;
+    border: 1px solid #e6e6e6;
+    float: left;
+}
+/* 加减号 */
+.amount .decrease,.amount .increase{
+    float: left;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+.decrease {
+    background:url(../img/amount.png) no-repeat 0 -197px #f8f8f8;
+}
+.increase{
+    background:url(../img/amount.png) no-repeat -32px -169px #f8f8f8;
+}
+.goods-num {
+    float: left;
+    width: 44px;
+    height: 28px;
+    text-align: center;
+    border: 0 none;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    color: #333;
+}
+/* 购买按钮 */
+.deal-btn {
+    padding: 30px 0 0 65px;
+    height: 50px;
+}
+.deal-btn .buy,.deal-btn .add-car{
+    display: inline-block;
+    width: 140px;
+    height: 50px;
+    color: #fff;
+    background: #c00;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 10px 0 0;
+}
+.deal-btn .add-car {
+    border: 1px solid #ffd9d9;
+    background-color: #ffeded;
+    color: #c00;
+    line-height: 48px;
+    height: 48px;
+}

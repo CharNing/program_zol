@@ -1,0 +1,290 @@
+.wrap {
+    width:960px;
+}
+/* 头部 */
+.header {
+    width: 960px;
+    margin: 0 auto;
+    padding: 30px 0;
+    height: 60px;
+}
+/* logo */
+.header .car-logo{
+    float: left;
+}
+/* 下单步骤 */
+.flow-step {
+    float: right;
+    padding: 2px 0px 0px;
+}
+.flow-step .flow-step-1 li {
+    float: left;
+    width: 90px;
+    height: 36px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    background: url(../img/step-bg.png) 100% -74px no-repeat rgb(230, 230, 230);
+}
+/* 当前步骤 */
+.flow-step .flow-step-1 .s1{
+    padding: 0px 14px;
+    background-position: 100% -37px;
+    background-color:  rgb(224, 45, 45);
+    color: #fff;
+}
+.flow-step .flow-step-1 .s5{
+    background-image: none;
+}
+/* 订单内容 */
+.car-wrap{
+    width: 960px;
+    margin: 0 auto;
+}
+/* 购物车状态 */
+.car-wrap .car-state{
+    margin-top: 10px;
+}
+.car-wrap .car-state p{
+    padding: 7px 0 10px 0;
+    font-size: 12px;
+    text-align: right;
+}
+/* 总计 */
+.car-wrap .car-state .total{
+    height: 22px;
+    line-height: 22px;
+    color: #666;
+    float: right;
+}
+.total-price{
+    color: #ff0000;
+    padding: 0 2px 0 0;
+}
+.car-wrap .car-state .total .subCart{
+    width: 58px;
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    font-weight: bolder;
+    color: #fff;
+    background: url(../img/pic1.png) -192px -150px no-repeat;
+}
+/* 订单表格 */
+.car-wrap .order {
+    width: 100%;
+    margin-top: 20px;
+}
+/* 表单标题 */
+.order .order-table th{
+    height: 36px;
+    background: #f5f5f5;
+    border-top: 2px solid #e02d2d;
+    line-height: 36px;
+    font-weight: normal;
+    text-align: center;
+}
+.order .order-table .th-1{
+    width: 398px;
+    text-align: center;
+}
+.order .order-table .th-2{
+    width: 128px;
+}
+.order .order-table .th-3{
+    width: 112px;
+}
+.order .order-table .th-4{
+    width: 126px;
+}
+.order .order-table .th-5{
+    width: 112px;
+}
+.order .order-table .th-6{
+    width: 84px;
+}
+
+/* 商铺 */
+.order .order-table td{
+    padding: 10px;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    text-align: center;
+}
+.order .order-table .store{
+    height: 43px;
+    padding: 10px 0 0 0;
+    border: 0 none;
+    background: #fff;
+}
+.order .order-table .store .shopname{
+    float: left;
+}
+.order .order-table .store .shopname a{
+    color: #134ba0;
+}
+.order .order-table .contact {
+    float: left;
+    padding: 11px 0 0 15px;
+}
+.order .order-table .security{
+    margin: 0 -9px 0 0;
+    padding: 7px 0 0 20px;
+    background: url(http://icon.zol-img.com.cn/newshop/merchant/tag-security.png) no-repeat 0 50%;
+}
+.order .order-table .qq{
+    background: url(http://wpa.qq.com/pa?p=2:308678776:52) no-repeat 0 50%;
+}
+/* 商品列表 */
+.order .order-table .car-items {
+    padding: 10px 10px 10px 12px;
+    width: 357px;
+    border-left: 1px solid #e3e3e3;
+}
+/* 复选框 */
+.order .order-table .car-items input{
+    float: left;
+    margin: 24px 10px 0 0;
+}
+/* 商品图片 */
+.order .order-table .car-items .pic {
+    float: left;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+    line-height: 58px;
+}
+.order .order-table .car-items .pic img{
+    width: 100%;
+    height: 100%;
+}
+/* 商品信息 */
+.order .order-table .inforbox {
+    float: left;
+    width: 240px;
+    padding: 0 0 0 10px;
+    line-height: 20px;
+    text-align: left;
+}
+/* 商品标题 */
+.order .order-table .inforbox .tit{
+    margin: -2px 0 4px;
+    height: 40px;
+    line-height: 20px;
+    font-weight: normal;
+    font-size: 12px;
+    overflow: hidden;
+}
+.order .order-table .inforbox .tit a{
+    color: #134ba0;
+}
+.order .order-table .seven {
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    display: block;
+    margin-right: 5px;
+    background: url(../img/pic1.png) 0 -286px no-repeat;
+}
+.order .order-table .inforbox p{
+    color: #666;
+}
+.order .order-table .info-con {
+    height: 20px;
+    line-height: 20px;
+    color: #666;
+    position: relative;
+}
+.order .order-table .info-help{
+    position: absolute;
+    left: 36px;
+    top: 0px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    display: none;
+}
+/* 商品价格 */
+.order .order-table .old-price{
+    display: block;
+    padding: 6px;
+    color: #999;
+    text-decoration: line-through;
+}
+/* 商品计数 */
+.order .order-table .buynum{
+    position: relative;
+    width: 110px;
+    height: 20px;
+    padding: 31px 0;
+    text-align: center;
+}
+.minus, .add {
+    float: left;
+    width: 10px;
+    height: 10px;
+    line-height: 8px;
+    background: #fff;
+    color: #333;
+    text-align: center;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin: 5px 8px 0 10px;
+}
+.order .order-table .amount{
+    width: 28px;
+    height: 16px;
+    float: left;
+    padding: 1px 3px;
+    text-align: right;
+}
+
+/* 优惠 */
+.order .order-table .tg{
+    background-color: #ce1a1b;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 3px;
+}
+.order .order-table .time span{
+    color: #ce1a1b;
+}
+.order .order-table .total-price{
+    color: #ff0000;
+}
+/* 删除 */
+.order .order-table .del{
+    border-right: 1px solid #e3e3e3;
+}
+.order .order-table .delbox {
+    position: relative;
+}
+.order .order-table .delbox a{
+    color: #134ba0;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+}
+/* 删除提示 */
+.order .order-table .deltip{
+    width: 144px;
+    padding: 6px 10px;
+    position: absolute;
+    top: -60px;
+    left: -50px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    line-height: 18px;
+    color: #666;
+    display: none;
+}
+.order .order-table .deltip a{
+    margin: 0 12px;
+    display: inline-block;
+    color: #3366cc;
+}

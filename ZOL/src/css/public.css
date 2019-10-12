@@ -1,0 +1,124 @@
+/* 头部样式 */
+img {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #f6f6f6;
+}
+
+header {
+    height: 139px;
+    background: #fff;
+}
+
+/* logo-搜索栏外框样式 */
+.wrap {
+    width: 1200px;
+    height: 66px;
+    margin: 0 auto;
+    padding: 22px 0 10px 0;
+}
+
+/* 搜索栏外边框 */
+.wrap .search-wrap {
+    width: 500px;
+    height: 66px;
+    margin: 0 auto;
+}
+
+/* 导航栏外边框 */
+.nav-wrap {
+    height: 40px;
+    border-top: 1px solid #f6f6f6;
+}
+
+.nav-wrap .nav-content {
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+/* 隐藏的导航条 */
+.fixed {
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 299;
+    display: none;
+}
+
+/* 主要内容区 */
+section {
+    width: 1200px;
+    margin: 10px auto 0;
+}
+
+/* 分类区 */
+.hot-sort {
+    background: #fff;
+    width: 184px;
+    height: 367px;
+    color: #333;
+    font-size: 12px;
+    padding: 6px 3px 4px;
+    float: left;
+}
+
+/* 主要内容外边框 */
+.main-wrap {
+    width: 890px;
+    float: left;
+}
+
+/* 右侧广告 */
+.ad {
+    float: right;
+    width: 300px;
+}
+
+/* 底部 */
+footer {
+    height: 40px;
+    background: #333;
+}
+
+.footer-wrap {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    color: #b8b8b8;
+    font-size: 12px;
+}
+
+.footer-wrap .footer-left {
+    height: 100%;
+    line-height: 40px;
+    float: left;
+}
+
+.footer-wrap .footer-right {
+    float: right;
+    line-height: 40px;
+}
+
+.footer-wrap .footer-right a {
+    color: #b8b8b8;
+    padding: 0 9px;
+    border-right: 1px solid #494e41;
+}
+
+/* iconfont */
+@font-face {
+    font-family: 'iconfont';
+    src: url("../iconfont/font_ktnkt22hrotg9zfr.woff") format("woff");
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+}
