@@ -1,0 +1,1 @@
+require(['render']); // 调用render.js模块

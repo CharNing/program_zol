@@ -68,7 +68,7 @@ gulp.task('babel', function () {
             presets: ['es2015']
         }))
         .pipe(uglifyjs())
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('dist/script/'));
 });
 
 //6.png图片的压缩
