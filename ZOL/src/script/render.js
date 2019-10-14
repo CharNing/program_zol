@@ -1,5 +1,5 @@
 require(['config'], function () {
-    require(['jquery'], function () {
+    require(['jquery','require'], function () {
         render();
     })
 });
