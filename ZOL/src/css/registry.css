@@ -63,7 +63,7 @@ header {
     padding-bottom: 100px; 
 }
 /* 标题 */
-.registry-wrap .header-title {
+.header-title {
     width: 890px;
     padding: 16px 0 16px 90px;
     background: #fafafa;
@@ -72,18 +72,18 @@ header {
     text-align: center;
 }
 /* 表单 */
-.registry-wrap .registry-form{
+ #registry-form{
     width: 500px;
     padding: 30px 0 0 89px;
     background: #fff;
 }
 /* 表单切换 */
-.registry-wrap .registry-form .registry-tab{
+#registry-form .registry-tab{
     width: 100%;
     height: 39px;
     border-bottom: 1px solid #e6e6e6;
 }
-.registry-wrap .registry-form .registry-tab .phone {
+#registry-form .registry-tab .phone {
     width: 50%;
     height: 36px;
     border: 1px solid #e6e6e6;
@@ -94,7 +94,7 @@ header {
     text-align: center;
     background: #fff;
 }
-.registry-wrap .registry-form .registry-tab .phone span {
+#registry-form .registry-tab .phone span {
     display: inline-block;
     font-size: 18px;
     color: #c00;
@@ -103,18 +103,18 @@ header {
     background: url(../img/login-bg.png) -158px -235px no-repeat;
 }
 /* 注册内容 */
-.registry-wrap .registry-form .registry-phone {
+#registry-form .registry-phone {
     width: 100%;
     padding-top: 30px;
 }
-.registry-wrap .registry-form .registry-phone li {
+#registry-form .registry-phone li {
     width: 417px;
     height: 40px;
     padding-left: 83px;
     margin-bottom: 42px;
     position: relative;
 }
-.registry-wrap .registry-form .registry-phone li label {
+#registry-form .registry-phone li label {
     width: 83px;
     height: 41px;
     font-size: 14px;
@@ -125,12 +125,12 @@ header {
     top: 0;
     left: 0;
 }
-.registry-wrap .registry-form .registry-phone li label i {
+#registry-form .registry-phone li label i {
     padding: 0 7px 0 0;
     color: #f30;
     font-size: 12px;
 }
-.registry-wrap .registry-form .registry-phone li input{
+#registry-form .registry-phone li input{
     width: 278px;
     height: 22px;
     padding: 8px 5px;
@@ -138,7 +138,7 @@ header {
     border: 1px solid #ccc;
 }
 /* 错误提示 */
-.registry-wrap .registry-form .registry-phone li .wrong-title{
+#registry-form .registry-phone li .wrong-title{
     color: #ff3333;
     font-size: 12px;
     background: url(../img/login-bg.png) -155px -184px no-repeat;
@@ -149,38 +149,43 @@ header {
     height: 40px;
     display: block;
     line-height: 40px;
+    white-space: nowrap;
     display: none;
 }
-.registry-wrap .registry-form .registry-phone li .tip{
+#registry-form .registry-phone li .tip{
     display: block;
     font-size: 12px;
     color: #aaa;
     padding-top: 10px;
 }
-/* 发送短信的按钮 */
-.registry-wrap .registry-form .registry-phone li .btn{
+/* 验证码 */
+#code{
+    display: inline-block;
     width: 108px;
     height:40px;
     background: #f8f8f8;
     cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
 }
 /* 同意协议 */
-.registry-form .agree {
+#registry-form .agree {
     width: 417px;
     height: 32px;
     padding-left: 83px;
     text-align: center;
 }
-.registry-form .agree .chose {
+#registry-form .agree .chose {
     vertical-align: middle;
     margin-right: 8px;
 }
-.registry-form .agree a{
+#registry-form .agree a{
     color: #134ba0;
     font-size: 12px;
 }
 /* 提交按钮 */
-.registry-form .submit-btn{
+#registry-form .submit-btn{
     width: 290px;
     height: 40px;
     margin: 20px 0 0 83px;

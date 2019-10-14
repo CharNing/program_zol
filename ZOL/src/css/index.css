@@ -33,16 +33,20 @@
 }
 
 /* 热词 */
-.wrap .search-wrap .search-hot {
+.search-wrap .search-hot {
     margin-top: 10px;
 }
 
-.wrap .search-wrap .search-hot a {
+.search-wrap .search-hot a {
     color: #666;
     margin-right: 6px;
 }
+.search-wrap .search-hot a:hover{
+    color: #c00;
+    text-decoration: underline;
+}
 
-.wrap .search-wrap .search-hot .p {
+.search-wrap .search-hot .p {
     color: #c00;
 }
 
@@ -65,7 +69,9 @@
 .nav-content .nav-left .active {
     color: #f74b44;
 }
-
+.nav-content .nav-left a:hover{
+    color: #f74b44;
+}
 /* 右边登录投稿 */
 .nav-content .nav-right {
     height: 100%;
@@ -74,13 +80,15 @@
 }
 
 /* 爆料投稿 */
-.nav-content .nav-right .disclose {
+.nav-right .disclose {
     line-height: 40px;
     margin-right: 20px;
     padding-left: 24px;
     background: url(../img/baoliao.png) 0 -2px no-repeat;
 }
-
+.nav-right .disclose:hover , .nav-right .login:hover {
+    color: #f74b44;
+}
 /* 登录 */
 .nav-content .nav-right .login {
     color: #f74b44;
@@ -117,9 +125,13 @@
 .hot-sort .hot-nav em {
     border-left: 1px solid #e4e4e4;
 }
+/* 移入导航词，字体变红 */
+.hot-sort .hot-nav a:hover{
+    color: #f74b44;
+}
 
 /* banner */
-.banner {
+#banner {
     width: 1009px;
     height: 377px;
     float: right;
@@ -129,33 +141,32 @@
 }
 
 /* 图片 */
-.banner ul {
+#banner ul {
     position: absolute;
-    width: 3027px;
     left: 0;
     top: 0;
 }
 
-.banner ul li {
+#banner ul li {
     width: 1009px;
     height: 377px;
     float: left;
 }
 
-.banner ul li img {
+#banner ul li img {
     display: block;
     width: 100%;
 }
 
 /* 按钮 */
-.banner ol {
+#banner ol {
     position: absolute;
     bottom: 20px;
     left: 50%;
     margin-left: -42px;
 }
 
-.banner ol li {
+#banner ol li {
     float: left;
     width: 18px;
     height: 18px;
@@ -164,7 +175,7 @@
     background: url(https://icon.zol-img.com.cn/daogou/src/assets/components/focus/images/banner-icon-41280918f7.png) no-repeat;
 }
 
-.banner ol .active {
+#banner ol .active {
     background: url(https://icon.zol-img.com.cn/daogou/src/assets/components/focus/images/banner-action-icon-5d2fe22f08.png) no-repeat;
 }
 
@@ -190,6 +201,9 @@
 }
 
 /* 主要内容区 */
+.main-wrap {
+    position: relative;
+}
 .main-wrap .pic-box {
     width: 850px;
     padding: 20px;
@@ -305,11 +319,18 @@
 .pic-list li .top-3 {
     background: url(../img/top3.png) no-repeat;
 }
+.pic-list .over:hover{
+    color: #c00;
+}
 
 /* 会买专辑 */
-.main-wrap .pic-box .title .buy2 {
+.pic-box .title .buy2 {
     background: url(../img/huimaizhuanji.png) no-repeat;
 }
+.pic-box .title a:hover{
+    color: #cd3430;
+}
+
 
 /* 内容切换 */
 .main-wrap .tag {
@@ -347,6 +368,9 @@
     margin-top: 20px;
     display: none;
 }
+.show {
+    display: block;
+}
 
 /* 图片 */
 .refresh-pic {
@@ -370,7 +394,7 @@
     float: left;
     margin-left: 20px;
 }
-
+/* 标题 */
 .refresh-info a {
     display: inline-block;
     width: 100%;
@@ -382,6 +406,13 @@
     display: inline-block;
     color: #f74b44;
     margin: 5px 0 0 10px;
+}
+.h a:hover{
+    color: #cd3430;
+}
+.h .right .btn-right:hover{
+    background: #cd3430;
+    color: #fff;
 }
 /* 描述文本 */
 .content-text {
@@ -401,12 +432,16 @@
 
 /* 查看详情 */
 .refresh-info .more {
+    width: 56px;
     font-size: 14px;
     color: #477cc8;
     margin: 5px 0 10px;
 }
+.refresh-info .more:hover{
+    color:#c00;
+}
 
-/* 底部 */
+/* 底部用户信息 */
 .refresh-info .left {
     float: left;
     height: 26px;
@@ -477,16 +512,60 @@
     left: -50px;
 }
 
-/* 显示的内容 */
-.show {
-    display: block;
-}
-
 /* 加载全部 */
 .main-wrap .content-box .ending {
     font-size: 16px;
     text-align: center;
     margin: 40px 0;
+}
+/* 楼梯导航 */
+#floor-nav {
+    width: 35px;
+    position: fixed;
+    top: 200px;
+    left: 200px;
+    border: 1px solid #ddd;
+    display: none;
+}
+
+#floor-nav ul li {
+    width: 35px;
+    height: 32px;
+    border-bottom: 1px dotted #DDDDDD;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    padding: 10px 0;
+    background: #918888;
+    color: #fff;
+}
+
+#floor-nav ul li span {
+    width: 35px;
+    height: 32px;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#floor-nav ul .last {
+    background: #5e4a4a;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+    line-height: 32px;
+}
+
+#floor-nav ul li.active span {
+    background: #c00;
+    color: #fff;
+    display: block;
+}
+
+#floor-nav ul li:hover span {
+    background: #c00;
+    color: #fff;
+    display: block;
 }
 
 /* 右边顶部广告 */

@@ -1,17 +1,18 @@
 require(['config'], function () {
-    require(['jquery','require'], function () {
+    require(['jquery'], function () {
         render();
     })
 });
-
+//  主页面渲染
 function render() {
-    const $banpic = $('.banner .banpic');
+    const $banpic = $('#banner .banpic');
     const $hotpic = $('#hot-pic');
     const $buypic = $('#buy-pic');
     const $hottgpic = $('.ad .middle-ad .item');
     const $cheap = $('#first');
     const $recommend = $('#second');
     const $goods = $('#third');
+    const $hotWord = $('.search-hot');
     const phpurl = 'http://10.31.155.61/program_zol/ZOL/php/';
     $.ajax({
         type: 'get',
@@ -24,25 +25,26 @@ function render() {
         let buyhtml = '';
         let hottghtml = '';
         let cheaphtml = '';
-        let recommend = '';
-        let goods = '';
+        let recommendhtml = '';
+        let goodshtml = '';
+        let wordhtml = '';
         $.each(data, function (index, value) {
             if (value.title === 'banner') {// banner图渲染
                 banhtml += `
-            <li>
-                <a href="#">
-                    <img src="${value.url}" alt="">;
-                </a>
-            </li>
+                    <li>
+                        <a href="#">
+                            <img src="${value.url}" alt="">;
+                        </a>
+                    </li>
             `
             } else if (value.title === 'hot') { // 今日抢购渲染
                 if (value.top) {
                     hothtml += `
                         <li>
                             <a href="#">
-                            <img src="${value.url}" alt=""></a>
+                                <img class="lazy" src="${value.url}" alt=""></a>
                             <a href="#">
-                                <p>${value.headline}</p>
+                                <p class="over">${value.headline}</p>
                             </a>
                             <div class="price">
                                 <span>￥</span>${value.newprice}<span class="old">${value.oldprice}</span>
@@ -53,10 +55,11 @@ function render() {
                 } else {
                     hothtml += `
                         <li>
-                            <a href="#"><img
-                                    src="${value.url}" alt=""></a>
                             <a href="#">
-                                <p>${value.headline}</p>
+                                <img class="lazy" src="${value.url}" alt="">
+                            </a>
+                            <a href="#">
+                                <p class="over">${value.headline}</p>
                             </a>
                             <div class="price">
                                 <span>￥</span>${value.newprice}<span class="old">${value.oldprice}</span>
@@ -68,9 +71,9 @@ function render() {
                 buyhtml += `
                 <li>
                     <a href="#">
-                    <img src="${value.url}" alt=""></a>
+                    <img class="lazy" src="${value.url}" alt=""></a>
                     <a href="#">
-                        <p>${value.headline}</p>
+                        <p class="over">${value.headline}</p>
                     </a>
                 </li>
                 `
@@ -78,7 +81,7 @@ function render() {
                 hottghtml += `
                 <li class="clear_fix">
                     <a href="#">
-                        <img src="${value.url}"  alt="${value.headline}">
+                        <img class="lazy" src="${value.url}"  alt="${value.headline}">
                         <span class="description"><i>${value.headline}</i></span>
                     </a>
                     <p class="ad-price">
@@ -92,10 +95,10 @@ function render() {
                     <div class="refresh-item">
                         <div class="refresh-pic">
                             <a href="#">
-                                <img src="${value.url}" alt="">
+                                <img class="lazy" src="${value.url}" alt="">
                             </a>
                         </div>
-                        <div class="refresh-info">
+                        <div class="refresh-info h">
                             <a href="#">
                                 ${value.headline}
                                 <span>${value.subhead}</span>
@@ -123,10 +126,10 @@ function render() {
                     <div class="refresh-item">
                         <div class="refresh-pic">
                             <a href="#">
-                                <img src="${value.url}" alt="">
+                                <img class="lazy" src="${value.url}" alt="">
                             </a>
                         </div>
-                        <div class="refresh-info">
+                        <div class="refresh-info h">
                             <a href="#">
                                 ${value.headline}
                                 <span>${value.subhead}</span>
@@ -149,15 +152,15 @@ function render() {
                     </div>
                     `
                 }
-            } else if (value.title === 'recommend'){ // 达人推荐
-                recommend += `
+            } else if (value.title === 'recommend') { // 达人推荐
+                recommendhtml += `
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img src="${value.url}" alt="">
+                            <img class="lazy" src="${value.url}" alt="">
                         </a>
                     </div>
-                    <div class="refresh-info">
+                    <div class="refresh-info h">
                         <a href="#">
                             ${value.headline}
                             <span>${value.newprice}元</span>
@@ -185,15 +188,15 @@ function render() {
                 </div>
 
                 `
-            } else if (value.title === 'goods'){ // 精选好物
-                goods += `
+            } else if (value.title === 'goods') { // 精选好物
+                goodshtml += `
                 <div class="refresh-item">
                 <div class="refresh-pic">
                     <a href="#">
-                        <img src="${value.url}" alt="">
+                        <img class="lazy" src="${value.url}" alt="">
                     </a>
                 </div>
-                <div class="refresh-info">
+                <div class="refresh-info h">
                     <a href="#">
                         ${value.headline}
                     </a>
@@ -219,6 +222,18 @@ function render() {
                 </div>
             </div>
                 `
+            } else if (value.title === 'hot-word') { // 搜索框下热词
+                $.each(value.text.split(','), function (i, v) {
+                    if (i === 1) {
+                        wordhtml += `
+                            <a href="#" class='p'>${v}</a>
+                            `
+                    }else{
+                        wordhtml += `
+                        <a href="#">${v}</a>
+                        `
+                    }
+                })
             }
         })
         $banpic.html(banhtml);
@@ -226,7 +241,8 @@ function render() {
         $buypic.html(buyhtml);
         $hottgpic.html(hottghtml);
         $cheap.html(cheaphtml);
-        $recommend.html(recommend);
-        $goods.html(goods);
+        $recommend.html(recommendhtml);
+        $goods.html(goodshtml);
+        $hotWord.html(wordhtml);
     });
 }

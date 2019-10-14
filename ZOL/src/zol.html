@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/public.css">
     <link rel="stylesheet" href="./css/index.css">
-    <script src="./script/require.js" defer async="true" data-main="./script/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" defer async="true" data-main="./script/main.js"></script>
 </head>
 
 <body>
@@ -35,11 +35,8 @@
                     <!-- 搜索按钮 -->
                     <a class="btn-search" href="javascript:;">搜&nbsp&nbsp索</a>
                 </div>
+                <!-- 热门搜索词 -->
                 <div class="search-hot">
-                    <!-- 热门搜索词 -->
-                    <a href="#">雪纺衫</a>
-                    <a href="#" class="p">女包</a>
-                    <a href="#">凉鞋新品</a>
                 </div>
             </div>
         </div>
@@ -54,9 +51,9 @@
                     <a href="#">团购</a>
                 </div>
                 <div class="nav-right">
-                    <a href="#" class="disclose">爆料投稿</a>
-                    <a href="#" class="login">登录</a>
-                    <a href="registry.html" class="registry">注册</a>
+                    <a href="#" class="disclose ">爆料投稿</a>
+                    <a href="http://10.31.155.61/program_zol/ZOL/src/login.html" class="login">登录</a>
+                    <a href="http://10.31.155.61/program_zol/ZOL/src/registry.html" class="registry">注册</a>
                 </div>
             </div>
         </nav>
@@ -69,23 +66,18 @@
                 <a href="#">手机数码</a>
                 <em></em>
                 <a href="#">电脑办公</a>
-                <em></em>
                 <a href="#">钟表首饰</a>
                 <em></em>
                 <a href="#">美妆护肤</a>
-                <em></em>
                 <a href="#">家居日用</a>
                 <em></em>
                 <a href="#">家居音影</a>
-                <em></em>
                 <a href="#">服饰运动</a>
                 <em></em>
                 <a href="#">图书礼品</a>
-                <em></em>
                 <a href="#">零食饮品</a>
                 <em></em>
                 <a href="#">母婴玩具</a>
-                <em></em>
                 <a href="#">汽车用品</a>
                 <em></em>
                 <a href="#" style="color: #c00">9块9包邮</a>
@@ -100,7 +92,7 @@
                 <a href="#">淘宝</a>
             </div>
         </article>
-        <aside class="banner">
+        <aside id="banner">
             <!-- banner图片 -->
             <ul class="banpic">
             </ul>
@@ -118,9 +110,9 @@
     <!-- 商品内容 -->
     <section class="clear_fix">
         <!-- 左边商品区 -->
-        <!-- 今日抢购 -->
         <article class="main-wrap">
-            <div class="pic-box">
+            <!-- 今日抢购 -->
+            <div class="pic-box floor">
                 <!-- 标题 -->
                 <div class="title clear_fix">
                     <h3 class="buy1">今日抢购</h3>
@@ -133,7 +125,7 @@
                 </ul>
             </div>
             <!-- 会买专辑 -->
-            <div class="pic-box">
+            <div class="pic-box floor">
                 <!-- 标题 -->
                 <div class="title clear_fix">
                     <h3 class="buy2">会买专辑</h3>
@@ -146,7 +138,7 @@
                 </ul>
             </div>
             <!-- 内容切换 -->
-            <div class="tag">
+            <div class="tag floor">
                 <!-- 标题 -->
                 <div class="tag-title clear_fix">
                     <h4 class="active">精选好价</h4>
@@ -156,7 +148,7 @@
                 <!-- 切换的内容 -->
                 <div class="content-box">
                     <!-- 第一块内容 精选好价 -->
-                    <div class="refresh show clear_fix" id="first">
+                    <div class="refresh show clear_fix show" id="first">
                     </div>
                     <!-- 第二块内容 达人推荐-->
                     <div class="refresh clear_fix" id="second">
@@ -167,6 +159,15 @@
                     <!-- 加载全部 -->
                     <p class="ending">已全部加载</p>
                 </div>
+            </div>
+            <!-- 楼梯导航 -->
+            <div id="floor-nav">
+                <ul>
+                    <li class="active"><span>今日抢购</span> </li>
+                    <li><span>会买专辑</span> </li>
+                    <li><span>精选专区</span> </li>
+                    <li class="last">顶部</li>
+                </ul>
             </div>
         </article>
 
@@ -221,7 +222,7 @@
         </section>
     </footer>
     <!-- 隐藏的导航，滚动条移动到指定区域时显示-->
-    <nav class="nav-wrap fixed">
+    <nav class="nav-wrap fixed" id="top-nav">
         <div class="nav-content">
             <div class="nav-left">
                 <a href="#" class="active">首页</a>

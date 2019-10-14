@@ -8,6 +8,7 @@
     <title>注册_Z商城</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/registry.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" defer async="true" data-main="./script/sec.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
             <!-- logo -->
             <div class="logo">
                 <a href="index.html">
-                    <img src="src/img/logo-registry.png" alt="Z商城" class="pic-logo">
+                    <img src="./img/logo-registry.png" alt="Z商城" class="pic-logo">
                     <p class="title">中关村在线旗下导购平台</p>
                 </a>
             </div>
@@ -32,7 +33,7 @@
             30秒快速注册，加入值买
         </article>
         <fieldset>
-            <form action="" method="" class="registry-form">
+            <form action="http://10.31.155.61/program_zol/ZOL/php/registry.php" method="POST" id="registry-form">
                 <!-- 表单切换 -->
                 <ul class="registry-tab">
                     <li class="phone">
@@ -43,39 +44,32 @@
                 <ul class="registry-phone">
                     <!-- 手机号 -->
                     <li>
-                        <label for=""><i>*</i>手机号：</label><input type="text">
+                        <label for=""><i>*</i>手机号：</label><input type="text" name="userphone" id="userphone">
                         <!-- 错误提示 -->
-                        <span class="wrong-title"></span>
+                        <span class="wrong-title wrophone"></span>
                         <span class="tip">请填写手机号码</span>
                     </li>
-                    <!-- 验证 -->
-                    <li>
-                        <label for=""><i>*</i>验证码：</label><input type="text" disabled>
-                        <!-- 错误提示 -->
-                        <span class="wrong-title"></span>
-                        <span class="tip">请完成验证</span>
-                    </li>
-                    <!-- 发送验证码 -->
+                    <!-- 随机验证码 -->
                     <li>
                         <label for=""><i>*</i>验证码：</label>
                         <input type="text" style="width: 158px;height:22px;margin-right: 10px">
-                        <input type="button" value="获取短信验证码" class="btn">
+                        <span id="code">验证码</span>
                         <!-- 错误提示 -->
-                        <span class="wrong-title"></span>
-                        <span class="tip">请填写手机号码，然后点击[获取验证码]</span>
+                        <span class="wrong-title wrocode"></span>
+                        <span class="tip">请输入验证码</span>
                     </li>
                     <!-- 密码 -->
                     <li>
-                        <label for=""><i>*</i>密码：</label><input type="text">
+                        <label for=""><i>*</i>密码：</label><input type="password" name="password" id="password">
                         <!-- 错误提示 -->
-                        <span class="wrong-title"></span>
-                        <span class="tip">6-16位字母和数字的组合，不可用特殊字符</span>
+                        <span class="wrong-title wropass"></span>
+                        <span class="tip">6-16位字母和数字的组合</span>
                     </li>
                     <!-- 再次输入密码 -->
                     <li>
-                        <label for=""><i>*</i>确认密码：</label><input type="text">
+                        <label for=""><i>*</i>确认密码：</label><input type="password" id="repeat">
                         <!-- 错误提示 -->
-                        <span class="wrong-title"></span>
+                        <span class="wrong-title wrorepeat"></span>
                         <span class="tip">再次输入密码</span>
                     </li>
                 </ul>
@@ -86,7 +80,7 @@
                     <a href="#">《隐私权说明》</a>
                 </div>
                 <!-- 提交按钮 -->
-                <input type="submit" class="submit-btn" value="注册">
+                <input type="submit" class="submit-btn" value="注册" name="submit">
             </form>
         </fieldset>
     </section>
