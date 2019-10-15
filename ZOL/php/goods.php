@@ -1,6 +1,6 @@
 <?php
     include "conn.php";
-    $result=$conn->query("select * from zolpic");
+    $result=$conn->query("select * from zolpic where title = 'goods'");
     $zoldata=array();
     for($i=0;$i<$result->num_rows;$i++){
         $zolpic[$i]=$result->fetch_assoc();

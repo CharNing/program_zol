@@ -104,7 +104,7 @@ function banner() {
     console.log($pic.width())
     $btn.on('mouseover', function () {
         $(this).addClass('active').siblings('li').removeClass('active');
-
+        
         $picbox.stop(true).animate({
             left: 0
         })
