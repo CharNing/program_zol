@@ -85,7 +85,7 @@ function tab() {
             timer = setTimeout(function () {
                 _this.addClass('active').siblings($tabBtn).removeClass('active');
                 $tabContent.eq(_this.index()).addClass('show').siblings($tabContent).removeClass('show');
-            },300)
+            }, 300)
         }),
         function () {
             clearTimeout(timer);
@@ -98,18 +98,78 @@ function banner() {
     const $btn = $('#banner ol li');
     const $picbox = $('#banner .banpic');
     const $pic = $('#banner .banpic li');
+    const $left = $('#left');
+    const $right = $('#right');
 
     // 设置banner外框的长度
-    console.log($picbox.width());
-    console.log($pic.width())
-    $btn.on('mouseover', function () {
-        $(this).addClass('active').siblings('li').removeClass('active');
-        
-        $picbox.stop(true).animate({
-            left: 0
-        })
+    let $picWidth = $pic.width();
+    $picbox.width($picWidth * $pic.length);
+    let curIndex = 0;
 
+    // 移到哪个按钮，移到哪张图
+    $btn.on('mouseover', function () {
+        curIndex = $(this).index()
+        $(this).addClass('active').siblings('li').removeClass('active');
+        $picbox.stop(true).animate({
+            left: -$picWidth * ($(this).index())
+        })
+        // console.log(curIndex)
     })
 
+    // 点击右边箭头，图片移动
+    $right.on('click', function () {
+        rightmove();
+    })
+
+    // 点击左边箭头，图片移动
+    $left.on('click', function () {
+        curIndex--;
+        if (curIndex < 0) {
+            curIndex = $btn.length - 1;
+            $picbox.stop(true).animate({
+                left: -$picWidth * curIndex,
+            })
+            $btn.eq(curIndex).addClass('active').siblings('li').removeClass('active');
+        } else {
+            $picbox.stop(true).animate({
+                left: -$picWidth * curIndex,
+            })
+            $btn.eq(curIndex).addClass('active').siblings('li').removeClass('active');
+        }
+    })
+
+    // 自动播放
+    let timer = null;
+    timer = setInterval(function () {
+        rightmove();
+    }, 2000)
+
+    // 移入banner框，停止自动播放，移除恢复播放
+    $picbox.hover(
+        function () {
+            clearInterval(timer);
+        },
+        function () {
+            timer = setInterval(function () {
+                rightmove();
+            },2000)
+        })
+
+    // 封装向右移动函数
+    function rightmove() {
+        curIndex++;
+        if (curIndex < $btn.length) {
+            $picbox.stop(true).animate({
+                left: -$picWidth * curIndex,
+            })
+            $btn.eq(curIndex).addClass('active').siblings('li').removeClass('active');
+        } else {
+            curIndex = 0;
+            $picbox.stop(true).animate({
+                left: -$picWidth * curIndex,
+            })
+            $btn.eq(curIndex).addClass('active').siblings('li').removeClass('active');
+        }
+    }
 
 }

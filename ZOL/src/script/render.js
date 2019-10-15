@@ -5,7 +5,7 @@ require(['config'], function () {
 });
 //  主页面渲染
 function render() {
-    const $banpic = $('#banner .banpic');
+    const $banpic = $('#banner .banpic li');
     const $hotpic = $('#hot-pic');
     const $buypic = $('#buy-pic');
     const $hottgpic = $('.ad .middle-ad .item');
@@ -14,7 +14,6 @@ function render() {
     const $goods = $('#third');
     const $hotWord = $('.search-hot');
     const phpurl = 'http://10.31.155.61/program_zol/ZOL/php/';
-
     // 搜索框下搜索热词渲染
     $.ajax({
         type: 'get',
@@ -34,25 +33,23 @@ function render() {
         })
         $hotWord.html(wordhtml);
     });
-    
+
     //banner渲染
     $.ajax({
         type: 'get',
         url: phpurl + 'banner.php',
         dataType: 'json',
     }).done(function (bannerData) {
-        // console.log(bannerData)
         let banhtml = '';
         $.each(bannerData, function (index, value) {
-            banhtml += `
-                    <li>
+            banhtml = `
                         <a href="#">
-                            <img src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" width = "1009px" height = "377" alt="">
                         </a>
-                    </li>
             `
+            $($banpic[index]).append(banhtml)
         })
-        $banpic.html(banhtml);
+
     });
 
     // 今日抢购渲染
@@ -67,7 +64,7 @@ function render() {
                 hothtml += `
                     <li>
                         <a href="#">
-                            <img class="lazy" src="${value.url}" alt=""></a>
+                            <img class="lazy" data-original="${value.url}" width="154px" height='154px' alt=""></a>
                         <a href="#">
                             <p class="over">${value.headline}</p>
                         </a>
@@ -81,7 +78,7 @@ function render() {
                 hothtml += `
                     <li>
                         <a href="#">
-                            <img class="lazy" src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" width='154px' height='154px' alt="">
                         </a>
                         <a href="#">
                             <p class="over">${value.headline}</p>
@@ -107,7 +104,7 @@ function render() {
             buyhtml += `
                     <li>
                         <a href="#">
-                            <img src="${value.url}" alt="">
+                            <img class='lazy' data-original="${value.url}" width='154px' height='154px' alt="">
                         </a>
                     </li>
             `
@@ -126,7 +123,7 @@ function render() {
             hottghtml += `
             <li class="clear_fix">
                 <a href="#">
-                    <img class="lazy" src="${value.url}"  alt="${value.headline}">
+                    <img class="lazy" data-original="${value.url}" width='120px' height='90px'  alt="${value.headline}">
                     <span class="description"><i>${value.headline}</i></span>
                 </a>
                 <p class="ad-price">
@@ -143,15 +140,15 @@ function render() {
         type: 'get',
         url: phpurl + 'cheap.php',
         dataType: 'json',
-    }).done(function (recomData) {
-        let cheapData = '';
+    }).done(function (cheapData) {
+        let cheaphtml = '';
         $.each(cheapData, function (index, value) {
             if (value.text) {
                 cheaphtml += `
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" width = '154px' height='121px' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -182,7 +179,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" width='154px' height='121px' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -218,13 +215,13 @@ function render() {
         url: phpurl + 'recommend.php',
         dataType: 'json',
     }).done(function (recomData) {
-        let recomData = '';
+        let recommendhtml = '';
         $.each(recomData, function (index, value) {
             recommendhtml += `
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" width='154px' height='153px' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -265,13 +262,13 @@ function render() {
         url: phpurl + 'goods.php',
         dataType: 'json',
     }).done(function (goodsData) {
-        let goodsData = '';
+        let goodshtml = '';
         $.each(goodsData, function (index, value) {
             goodshtml += `
             <div class="refresh-item">
             <div class="refresh-pic">
                 <a href="#">
-                    <img class="lazy" src="${value.url}" alt="">
+                    <img class="lazy" data-original="${value.url}" width='154px' height='103px' alt="">
                 </a>
             </div>
             <div class="refresh-info h">

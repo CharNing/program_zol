@@ -160,7 +160,7 @@ header {
 }
 /* 验证码 */
 #code{
-    display: inline-block;
+    position: absolute;
     width: 108px;
     height:40px;
     background: #f8f8f8;
@@ -168,6 +168,8 @@ header {
     text-align: center;
     line-height: 40px;
     font-size: 14px;
+    left: 263px;
+    top: 0;
 }
 /* 同意协议 */
 #registry-form .agree {

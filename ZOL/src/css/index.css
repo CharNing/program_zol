@@ -189,6 +189,12 @@
     height: 40px;
     background: url(../img/arr.png) no-repeat rgba(76, 76, 76, 0.3);
 }
+#left:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+#right:hover {
+    background-color: rgba(0,0,0,0.5);
+}
 
 #left {
     background-position: 7px -52px;

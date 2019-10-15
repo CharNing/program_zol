@@ -1,7 +1,7 @@
 require(['config'], function () {
     require(['jquery'], function () {
         registry();
-        code();
+        
     })
 })
 
@@ -18,10 +18,11 @@ function registry() {
     const $wropass = $('#registry-form .wropass');// 密码错误提示
     const $wrorepeat = $('#registry-form .wrorepeat');// 再次确认密码错误提示
     const $btn = $('#registry-form .submit-btn')// 提交按钮
-    let passText = null;
     let passlock = true;
     let tellock = true;
     let paswdlock = true;
+    let codelock = true;
+    code($code);
 
     // 手机号码验证
     $phone.on('focus', function () {
@@ -31,7 +32,7 @@ function registry() {
     $phone.on('blur', function () {
         let reg = /^1[3456789]\d{9}$/;
         if ($(this)[0].value !== '') {
-            if (reg.test($(this)[0].value)) {
+            if (reg.test($(this).val())) {
                 $wrophone.css({
                     'background-position-y': '-148px',
                     'display': 'block'
@@ -39,7 +40,10 @@ function registry() {
                     .html('');
                 tellock = true;
             } else {
-                $wrophone.css('display', 'block').html('请填写有效的11位手机号码');
+                $wrophone.css({
+                    'background-position-y': '-184px',
+                    'display': 'block',
+                }).html('请填写有效的11位手机号码');
                 tellock = false;
             }
         } else {
@@ -53,105 +57,101 @@ function registry() {
         $(this).css('border-color', '#CCC');
     })
 
-    // 验证码验证
-    // $incode.on('focus', function () {
-    //     $(this).css('border-color', '#c00000');
-    // })
-    // $incode.on('blur', function () {
-    //     if ($(this)[0].value !== '') {
-    //         console.log(1);
-    //     } else {
-    //         console.log(2);
-    //     }
-    // })
+    
+    // 点击刷新验证码
+    $code.on('click',function(){
+        code($(this));
+    })
+    // 验证验证码
+    $incode.on('focus', function () {
+        $(this).css('border-color', '#c00000');
+    })
+    $incode.on('blur', function () {
+        if ($(this)[0].value !== '') {
 
-    // 密码验证
+        } else {
+
+        }
+        $(this).css('border-color', '#CCC');
+    })
+
+    // 设置密码
     $password.on('focus', function () {
         $(this).css('border-color', '#c00000');
     })
 
     $password.on('blur', function () {
-        let regNum = /[0-9]+/g;
-        let regUpper = /[A-Z]+/g;
-        let regLower = /[a-z]+/g;
-        let other = /[\W\_]+/g;
-        let count = 0;
-
+        let regNum = /^[0-9]+$/g;
         if ($(this)[0].value !== '') {
             if ($(this)[0].value.length >= 6 && $(this)[0].value.length <= 16) {
-                if (regNum.test($(this)[0].value)) {
-                    count++;
-                }
-                if (regUpper.test($(this)[0].value)) {
-                    count++;
-                }
-                if (regLower.test($(this)[0].value)) {
-                    count++;
-                }
-                if (other.test($(this)[0].value)) {
-                    count++;
-                }
-
-                switch (count) {
-                    case 1: {
-                        $wropass.css({
-                            'background-position-y': '-184px',
-                            'display': 'block'
-                        })
-                            .html('密码不能全是数字');
-                        paswdlock = false;
-                    }; break;
-                    case 2:
-                    case 3: {
-                        $wropass.css({
-                            'background-position-y': '-148px',
-                            'display': 'block',
-                            'color': 'orange'
-                        })
-                            .html('中');
-                        paswdlock = true;
-                    }; break;
-                    case 4: {
-                        $wropass.css({
-                            'background-position-y': '-148px',
-                            'display': 'block',
-                            'color': 'green'
-                        })
-                            .html('强');
-                        paswdlock = true;
-                    }
+                if (regNum.test($(this).val())) {
+                    $wropass.css({
+                        'background-position-y': '-184px',
+                        'display': 'block',
+                        'color': '#ff3333'
+                    }).html('密码不能全是数字');
+                    paswdlock = false;
+                } else {
+                    $wropass.css({
+                        'background-position-y': '-148px',
+                        'display': 'block',
+                        'color': '#ff3333'
+                    }).html('');
+                    paswdlock = true;
                 }
             } else {
                 $wropass.css({
                     'background-position-y': '-184px',
                     'display': 'block',
                     'color': '#ff3333'
-                })
-                    .html('6-16位字符，可使用字母、数字或符号的组合');
+                }).html('6-16位字符，可使用字母、数字或符号的组合');
                 paswdlock = false;
             }
-
         } else {
             $wropass.css({
                 'background-position-y': '-184px',
                 'display': 'block',
                 'color': '#ff3333'
             })
-            .html('请填写密码');
+                .html('请填写密码');
             paswdlock = false;
         }
         $(this).css('border-color', '#CCC');
         passText = $(this).val();
-        console.log(passText)
     })
 
-    // 密码匹配
-    console.log(passText)
+    // 确认密码
     $repass.on('focus', function () {
         $(this).css('border-color', '#c00000');
     })
-    $repass.on('blur',function(){
-
+    $repass.on('blur', function () {
+        if ($(this)[0].value !== '') {
+            if ($(this).val() === passText) {
+                $wrorepeat.css({
+                    'background-position-y': '-148px',
+                    'display': 'block',
+                })
+                    .html('');
+                paswdlock = true;
+            } else {
+                $wrorepeat.css({
+                    'background-position-y': '-184px',
+                    'display': 'block',
+                    'color': '#ff3333'
+                })
+                    .html('两次填写的密码不一致');
+                paswdlock = false;
+            }
+        } else {
+            $wrorepeat.css({
+                'background-position-y': '-184px',
+                'display': 'block',
+                'color': '#ff3333'
+            })
+                .html('请填写确认密码');
+            paswdlock = false;
+        }
+        $(this).css('border-color', '#CCC');
     })
 
 
@@ -160,37 +160,28 @@ function registry() {
 }
 
 
-    // 包装生成验证码函数
-    function code() {
-        const $code = $('#code');
-        let codeText = null;
-        let arr = [];
-        for (let i = 48; i <= 57; i++) {
-            arr.push(String.fromCharCode(i));
-        }
-
-        for (let i = 97; i <= 122; i++) {
-            arr.push(String.fromCharCode(i));
-        }
-        $code.on('click', function () {
-            let codehtml = '';
-            for (let i = 1; i <= 6; i++) {
-                let index = random(0, arr.length - 1);
-                if (index > 9) {
-                    let bstop = Math.random() > 0.5 ? true : false;
-                    if (bstop) {
-                        codehtml += arr[index].toUpperCase();
-                    } else {
-                        codehtml += arr[index];
-                    }
-                } else {
-                    codehtml += arr[index];
-                }
+// 包装生成验证码函数
+function code(box) {
+    let arr = [];
+    for (let i = 48; i <= 57; i++) {
+        arr.push(String.fromCharCode(i));
+    }
+    for (let i = 97; i <= 122; i++) {
+        arr.push(String.fromCharCode(i));
+    }
+    let codehtml = '';
+    for (let i = 1; i <= 6; i++) {
+        let index = parseInt(Math.random() * (arr.length));
+        if (index > 9) {
+            let bstop = Math.random() > 0.5 ? true : false;
+            if (bstop) {
+                codehtml += arr[index].toUpperCase();
+            } else {
+                codehtml += arr[index];
             }
-            $(this).html(codehtml);
-        })
+        } else {
+            codehtml += arr[index];
+        }
     }
-    // 包装随机数函数
-    function random(min, max) {
-        return parseInt(Math.random() * (max - min + 1)) + min;
-    }
+    box.html(codehtml);
+}

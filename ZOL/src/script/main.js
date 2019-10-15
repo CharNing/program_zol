@@ -1,1 +1,1 @@
-require(['render','effect']); // 调用render.js模块，调用effect.js模块
+require(['render','effect','imgLazy']); // 调用render.js模块，调用effect.js模块
