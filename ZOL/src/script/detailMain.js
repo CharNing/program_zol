@@ -1,0 +1,1 @@
+require(['detailsRender','detaileffect','car']);

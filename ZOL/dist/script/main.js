@@ -1,1 +1,1 @@
-"use strict";require(["render","effect","imgLazy"]);
+"use strict";require(["render","effect"]);

@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/public.css">
     <link rel="stylesheet" href="./css/details.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" defer async="true"
+        data-main="./script/detailMain.js"></script>
 </head>
 
 <body>
@@ -81,9 +83,9 @@
             </h1>
             <!-- 订单、购物车 -->
             <div class="order">
-                <a href="#" class="car">
+                <a href="http://10.31.155.61/program_zol/ZOL/src/car.html" class="car">
                     购物车 <i class="car-i"></i>
-                    <em class="num">0</em>
+                    <!-- <em class="num">0</em> -->
                 </a>
                 <a href="#" class="car">
                     我的优惠券 <i class="coupon-i"></i>
@@ -132,74 +134,71 @@
                     <a href="#">9块9包邮</a>
                 </li>
             </ul>
-            <div class="all-class">
-                <p class="title">
-                    全部分类<i></i>
-                </p>
+            <div id="menuBox">
+                <div class="all-class">
+                    <p class="title">
+                        全部分类<i></i>
+                    </p>
+                </div>
+                <div class="secmenu">
+                    <ul class="menu-item">
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">手机</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon1"></i>
+                        </li>
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">电脑</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon2"></i>
+                        </li>
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">DIY</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon3"></i>
+                        </li>
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">数码</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon4"></i>
+                        </li>
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">外设</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon5"></i>
+                        </li>
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">智能</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon6"></i>
+                        </li>
+                        <li class="item-btn">
+                            <h4>
+                                <a href="#">其他</a>
+                                <i></i>
+                            </h4>
+                            <i class="icon icon7"></i>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="secmenu">
-                <ul class="menu-item">
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">手机</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon1"></i>
-                    </li>
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">电脑</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon2"></i>
-                    </li>
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">DIY</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon3"></i>
-                    </li>
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">数码</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon4"></i>
-                    </li>
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">外设</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon5"></i>
-                    </li>
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">智能</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon6"></i>
-                    </li>
-                    <li class="item-btn">
-                        <h4>
-                            <a href="#">其他</a>
-                            <i></i>
-                        </h4>
-                        <i class="icon icon7"></i>
-                    </li>
-                </ul>
-            </div>
+
         </div>
     </nav>
     <!-- 主体内容 -->
     <section>
-        <!-- 返回条 -->
-        <article class="back">
-            <a href="index.html">首页</a> <span>&gt;</span>
-            <a href="#">DIY组装电脑</a> <span>&gt;</span>
-            <span>游戏悍将</span>
-        </article>
         <article class="main clear_fix">
             <div class="inner">
                 <div class="detail">
@@ -208,42 +207,18 @@
                         <!-- 小图的外框 -->
                         <div class="picbox">
                             <!-- 小图 -->
-                            <img class="small"
-                                src="https://mercrt-fd.zol-img.com.cn/t_s400x400/g5/M00/05/0A/ChMkJ1xKrdKIbXeLAAFp_VeaXssAAuknALj9BoAAWoV928.jpg"
-                                alt="">
+                            <img class="small" src="" alt="">
                             <!-- 小放 -->
                             <div class="sf"></div>
                         </div>
                         <!-- 大放 -->
                         <div class="bf">
                             <!-- 大图 -->
-                            <img class="big"
-                                src="https://mercrt-fd.zol-img.com.cn/t_s800x800/g5/M00/05/0A/ChMkJ1xKrdKIbXeLAAFp_VeaXssAAuknALj9BoAAWoV928.jpg"
-                                alt="">
+                            <img class="big" src="" alt="">
                         </div>
                         <!-- 底部小图列表 -->
                         <div class="ulist">
-                            <ul class="clear_fix">
-                                <li class="show">
-                                    <img src="http://i0mercrt.fd.zol-img.com.cn/t_s70x70/g5/M00/0B/0A/ChMkJ1tqYO6IZ_SrAAFSDQMMeOYAAqo2wLSCToAAVIl300.jpg"
-                                        alt="">
-                                </li>
-                                <li>
-                                    <img src="http://i0mercrt.fd.zol-img.com.cn/t_s70x70/g5/M00/0B/0A/ChMkJ1tqYO6IZ_SrAAFSDQMMeOYAAqo2wLSCToAAVIl300.jpg"
-                                        alt="">
-                                </li>
-                                <li>
-                                    <img src="http://i0mercrt.fd.zol-img.com.cn/t_s70x70/g5/M00/0B/0A/ChMkJ1tqYO6IZ_SrAAFSDQMMeOYAAqo2wLSCToAAVIl300.jpg"
-                                        alt="">
-                                </li>
-                                <li>
-                                    <img src="http://i0mercrt.fd.zol-img.com.cn/t_s70x70/g5/M00/0B/0A/ChMkJ1tqYO6IZ_SrAAFSDQMMeOYAAqo2wLSCToAAVIl300.jpg"
-                                        alt="">
-                                </li>
-                                <li>
-                                    <img src="http://i0mercrt.fd.zol-img.com.cn/t_s70x70/g5/M00/0B/0A/ChMkJ1tqYO6IZ_SrAAFSDQMMeOYAAqo2wLSCToAAVIl300.jpg"
-                                        alt="">
-                                </li>
+                            <ul class="clear_fix showBox">
                             </ul>
                         </div>
                     </div>
@@ -251,8 +226,7 @@
                     <aside class="infor">
                         <!-- 商品标题 -->
                         <h3 class="inf-title">
-                            甲骨龙 AMD 锐龙R3 1200 迪兰RX550-4G独显
-                            <span class="subhead">默认配置</span>
+                            <span class="subhead"></span>
                         </h3>
                         <!-- 团购 -->
                         <div class="group">
@@ -264,9 +238,9 @@
                         <!-- 价格 -->
                         <div class="price">
                             <span class="tg-price">团&nbsp;&nbsp;购&nbsp;&nbsp;价:</span>
-                            <span class="new">￥<i>2199.00</i></span>
-                            <span class="old">￥2299.00</span>
-                            <span class="save">立省100元</span>
+                            <span class="new">￥<i></i></span>
+                            <span class="old"></span>
+                            <span class="save"></span>
                         </div>
                         <!-- 交易区块 -->
                         <div class="deal">
@@ -276,7 +250,7 @@
                             <div class="serve">
                                 <!-- 服务保障提供者 -->
                                 <div class="supplier">
-                                    <p><span>服务保障：</span>由 <a href="#">汇通数码风暴专营店</a> 发货并承诺提供以下服务保障</p>
+                                    <p><span>服务保障：</span>由 <a href="#"></a> 发货并承诺提供以下服务保障</p>
                                     <ul class="safeguard clear_fix">
                                         <li>
                                             <i class="iconfont"></i>
@@ -295,17 +269,17 @@
                                 <!-- 商品配置 -->
                                 <div class="pz">
                                     <!-- 商品类别 -->
-                                    <div class="goods-ty"></div>
+                                    <!-- <div class="goods-ty"></div> -->
                                     <!-- 版本 -->
-                                    <div class="versions"></div>
+                                    <!-- <div class="versions"></div> -->
                                     <!-- 颜色类别 -->
-                                    <div class="versions"></div>
+                                    <!-- <div class="versions"></div> -->
                                     <!-- 内存 -->
-                                    <div class="versions"></div>
+                                    <!-- <div class="versions"></div> -->
                                     <!-- 销售类型 -->
-                                    <div class="versions"></div>
+                                    <!-- <div class="versions"></div> -->
                                     <!-- 套装 -->
-                                    <div class="suit"></div>
+                                    <!-- <div class="suit"></div> -->
                                     <!-- 购买数量 -->
                                     <div class="quantity clear_fix">
                                         <span>购买数量：</span>
@@ -314,7 +288,7 @@
                                             <input type="text" value="1" class="goods-num">
                                             <span class="increase"></span>
                                         </div>
-                                        <span>件 （限购89件）</span>
+                                        <span>件 （限购<i class="limit">99</i>件）</span>
                                     </div>
                                     <!-- 购买按钮 -->
                                     <div class="deal-btn">

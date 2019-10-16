@@ -17,12 +17,14 @@ function registry() {
     const $wrocode = $('#registry-form .wrocode'); // 验证码错误提示
     const $wropass = $('#registry-form .wropass');// 密码错误提示
     const $wrorepeat = $('#registry-form .wrorepeat');// 再次确认密码错误提示
+    const $agree = $('.agree .chose'); // 阅读协议复选框
     const $btn = $('#registry-form .submit-btn')// 提交按钮
     let passlock = true;
     let tellock = true;
     let paswdlock = true;
     let codelock = true;
-    code($code);
+    let agreelock = true;
+    code($code); // 生成验证码
 
     // 手机号码验证
     $phone.on('focus', function () {
@@ -61,6 +63,9 @@ function registry() {
     // 点击刷新验证码
     $code.on('click',function(){
         code($(this));
+        $wrocode.css({
+            'display': 'none'
+        }).html('');
     })
     // 验证验证码
     $incode.on('focus', function () {
@@ -68,9 +73,27 @@ function registry() {
     })
     $incode.on('blur', function () {
         if ($(this)[0].value !== '') {
-
+            if($code.html() === $incode.val()){
+                $wrocode.css({
+                    'background-position-y': '-148px',
+                    'display': 'block'
+                }).html('');
+                codelock = true;
+            }else{
+                $wrocode.css({
+                    'background-position-y': '-184px',
+                    'display': 'block'
+                })
+                    .html('验证码错误，请重新输入');
+                codelock = false;
+            }
         } else {
-
+            $wrocode.css({
+                'background-position-y': '-184px',
+                'display': 'block'
+            })
+                .html('请填写验证码');
+            codelock = false;
         }
         $(this).css('border-color', '#CCC');
     })
@@ -153,6 +176,20 @@ function registry() {
         }
         $(this).css('border-color', '#CCC');
     })
+
+    // 用户协议是否打钩
+    // if($('.agree input:checked')){
+    //     console.log(1)
+    // }else{
+    //     console.log(2)
+    // }
+    // $agree.on('click',function(){
+    //     if($agree.prop('checked',true)){
+    //         console.log(1)
+    //     }else{
+    //         console.log(2)
+    //     }
+    // })
 
 
 

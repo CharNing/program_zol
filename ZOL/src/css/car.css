@@ -1,6 +1,10 @@
 .wrap {
     width:960px;
 }
+/* 顶部 */
+.top-wrap{
+    width: 960px;
+}
 /* 头部 */
 .header {
     width: 960px;
@@ -51,17 +55,23 @@
     text-align: right;
 }
 /* 总计 */
-.car-wrap .car-state .total{
+ .total{
     height: 22px;
     line-height: 22px;
     color: #666;
+    /* float: right; */
+    width: 100%;
+}
+.total span{
     float: right;
 }
 .total-price{
     color: #ff0000;
     padding: 0 2px 0 0;
 }
-.car-wrap .car-state .total .subCart{
+.subCart{
+    float: right;
+    margin-left: 10px;
     width: 58px;
     height: 100%;
     border: 0;
@@ -239,6 +249,7 @@
     float: left;
     padding: 1px 3px;
     text-align: right;
+    text-align: center;
 }
 
 /* 优惠 */
@@ -287,4 +298,28 @@
     margin: 0 12px;
     display: inline-block;
     color: #3366cc;
+}
+
+/* 商品总价 */
+.total-footer{
+    margin: 10px 0;
+}
+.totprice{
+    color: #333;
+}
+.totprice .total-price{
+    font-size: 16px;
+    font-weight: bold;
+}
+.pay{
+    float: left;
+    width: 100%;
+
+}
+.subPay{
+    width: 130px;
+    height: 35px;
+    font-size: 18px;
+    background-position: 0 -113px;
+    font-weight: 500;
 }

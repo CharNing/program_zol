@@ -26,7 +26,7 @@ function render() {
             wordhtml += `
                     <li>
                         <a href="#">
-                            <img src="${value.url}" alt="">
+                            <img src="${value.url}"" alt="">
                         </a>
                     </li>
             `
@@ -43,9 +43,9 @@ function render() {
         let banhtml = '';
         $.each(bannerData, function (index, value) {
             banhtml = `
-                        <a href="#">
-                            <img class="lazy" data-original="${value.url}" width = "1009px" height = "377" alt="">
-                        </a>
+                <a href="#">
+                    <img class="lazy" data-original="${value.url}" src="${value.url}"" width = "1009px" height = "377" alt="">
+                </a>
             `
             $($banpic[index]).append(banhtml)
         })
@@ -63,9 +63,9 @@ function render() {
             if (value.top) {
                 hothtml += `
                     <li>
-                        <a href="#">
-                            <img class="lazy" data-original="${value.url}" width="154px" height='154px' alt=""></a>
-                        <a href="#">
+                        <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
+                            <img class="lazy" src="${value.url}" width="154px" height='154px' alt=""></a>
+                        <a href="href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
                             <p class="over">${value.headline}</p>
                         </a>
                         <div class="price">
@@ -77,10 +77,10 @@ function render() {
             } else {
                 hothtml += `
                     <li>
-                        <a href="#">
-                            <img class="lazy" data-original="${value.url}" width='154px' height='154px' alt="">
+                        <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
+                            <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='154px' alt="">
                         </a>
-                        <a href="#">
+                        <a href="href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
                             <p class="over">${value.headline}</p>
                         </a>
                         <div class="price">
@@ -104,7 +104,7 @@ function render() {
             buyhtml += `
                     <li>
                         <a href="#">
-                            <img class='lazy' data-original="${value.url}" width='154px' height='154px' alt="">
+                            <img class='lazy' data-original="${value.url}" src="${value.url}" width='154px' height='154px' alt="">
                         </a>
                     </li>
             `
@@ -122,8 +122,8 @@ function render() {
         $.each(hottgData, function (index, value) {
             hottghtml += `
             <li class="clear_fix">
-                <a href="#">
-                    <img class="lazy" data-original="${value.url}" width='120px' height='90px'  alt="${value.headline}">
+                <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
+                    <img class="lazy" data-original="${value.url}" src="${value.url}" width='120px' height='90px'  alt="${value.headline}">
                     <span class="description"><i>${value.headline}</i></span>
                 </a>
                 <p class="ad-price">
@@ -148,7 +148,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" data-original="${value.url}" width = '154px' height='121px' alt="">
+                            <img class="lazy" data-original="${value.url}" src="${value.url}" width = '154px' height='121px' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -179,7 +179,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" data-original="${value.url}" width='154px' height='121px' alt="">
+                            <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='121px' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -221,7 +221,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" data-original="${value.url}" width='154px' height='153px' alt="">
+                            <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='153px' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -268,7 +268,7 @@ function render() {
             <div class="refresh-item">
             <div class="refresh-pic">
                 <a href="#">
-                    <img class="lazy" data-original="${value.url}" width='154px' height='103px' alt="">
+                    <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='103px' alt="">
                 </a>
             </div>
             <div class="refresh-info h">

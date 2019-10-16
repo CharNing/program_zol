@@ -4,6 +4,11 @@ require(['config'], function () {
         tab();
         floor();
         banner();
+    //     $(function () {
+    //         $("lazy").lazyload({
+    //             effect: "fadeIn"
+    //         });
+    //     });
     })
 });
 
@@ -113,7 +118,6 @@ function banner() {
         $picbox.stop(true).animate({
             left: -$picWidth * ($(this).index())
         })
-        // console.log(curIndex)
     })
 
     // 点击右边箭头，图片移动

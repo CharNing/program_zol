@@ -89,6 +89,7 @@
     width: 130px;
     height: 130px;
     padding: 20px;
+    z-index: 99;
 }
  .menu .item .mobile img{
     width: 100%;
@@ -102,6 +103,7 @@
     width: 80px;
     text-align: right;
     left: -18px;
+    z-index: 99;
 }
 
 /* log */
@@ -269,7 +271,6 @@ nav {
 .nav-wrap .all-class{
     float: left;
     position: relative;
-    margin: -39px 0 0;
     width: 160px;
     height: 39px;
     background: #ec3639;
@@ -290,6 +291,14 @@ nav {
     background: url(../img/head.png) 0 -154px no-repeat;
 }
 /* 二级菜单 */
+#menuBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#menuBox:hover .secmenu {
+    display: block;
+}
 .nav-wrap .secmenu{
     position: absolute;
     top: 39px;
@@ -297,7 +306,9 @@ nav {
     width: 160px;
     background: #fff;
     display: none;
+    z-index: 99;
 }
+/* 二级菜单每个子项目 */
 .nav-wrap .secmenu .menu-item{
     position: relative;
     height: 400px;
@@ -378,18 +389,13 @@ nav {
     background-position-y: -111px;
 }
 
+
 /* 主体内容区 */
 section {
     width: 1200px;
     margin: 0 auto;
 }
-/* 返回条 */
-.back {
-    width: 100%;
-    height: 32px;
-    color: #999;
-    line-height: 32px;
-}
+
 /* 主要内容 */
 .main {
     width: 100%;
@@ -402,6 +408,8 @@ section {
 }
 .main .detail {
     float: left;
+    border: 1px solid #ededed;
+    margin-top: 10px;
 }
 /* 放大镜 */
 .main .detail .fdj {
@@ -416,18 +424,18 @@ section {
     position: relative;
 }
 .main .detail .fdj .picbox .small{
-    width: 100%;
+    width: 400px;
+    height: 400px;
     display: block;
 }
 .main .detail .fdj .picbox .sf{
-    width: 50px;
-    height: 50px;
-    background: orange;
-    opacity: 0.3;
+    background: #fff;
+    opacity: 0.5;
     position: absolute;
     left: 0;
     top: 0;
     visibility: hidden;
+    cursor: crosshair;
 }
 /* 大放 */
 .main .detail .fdj .bf{
@@ -436,14 +444,17 @@ section {
     overflow: hidden;
     position: absolute;
     left: 420px;
+    top: 10px;
     border: 1px solid #ddd;
-    display: none;
+    visibility: hidden;
     z-index: 99;
 }
-.main .detail .fdj .bf img{
+.main .detail .fdj .bf .big{
     position: absolute;
     left: 0;
     top: 0;
+    width: 800px;
+    height: 800px;
 }
 /* 底部的小图列表 */
 .ulist {
@@ -456,6 +467,7 @@ section {
     width: 66px;
     height: 66px;
     margin: 0 10px 0 0;
+    cursor: pointer;
 }
 .ulist .show{
     border: 2px solid #c00;
@@ -560,6 +572,7 @@ section {
     border-radius: 2px;
     background-color: #c00;
     margin-left: 8px;
+    /* width: 20px; */
 }
 /* 交易区块 */
 .deal{

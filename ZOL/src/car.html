@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/details.css">
     <link rel="stylesheet" href="./css/car.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" defer async="true"
+        data-main="./script/detailMain.js"></script>
 </head>
 
 <body>
-    <!-- 头部 -->
+    <!-- 顶部 -->
     <header class="top">
         <div class="top-wrap">
             <!-- 登录、注册 -->
@@ -73,6 +75,7 @@
             </ul>
         </div>
     </header>
+    <!-- 头部 -->
     <div class="header clear_fix">
         <!--logo样式 -->
         <div class="car-logo">
@@ -97,8 +100,8 @@
             <p>购物车状态<span>(0/30)</span></p>
             <!-- 总计 -->
             <div class="total">
-                <span>总计（不含运费）: <em>¥</em> <em class="total-price">1029</em></span>
                 <input class="subCart" type="button" value="去结算">
+                <span>总计（不含运费）: <em class="total-price">￥1029</em></span>
             </div>
         </div>
         <!-- 订单表格 -->
@@ -113,13 +116,13 @@
                     <th class="th-5">小计（元）</th>
                     <th class="th-6">操作</th>
                 </tr>
-                <!-- 店铺 -->
+                <!-- 店铺
                 <tr>
                     <td class="store">
                         <div class="shopname">
-                            <input type="radio" checked> 店铺：
-                            <a href="#">锦鑫科技电脑专营店</a>
-                        </div>
+                            <input type="radio" checked> 店铺： -->
+                            <!-- <a href="#">锦鑫科技电脑专营店</a> -->
+                        <!-- </div>
                         <div class="contact">
                             <a class="security">&nbsp;</a>
                         </div>
@@ -127,18 +130,18 @@
                             <a class="security qq">&nbsp;</a>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
                 <!-- 商品列表 -->
-                <tr>
+                <!-- <tr>
                     <td class="car-items">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" checked> -->
                         <!-- 商品图片 -->
-                        <a href="#" class="pic" target="_blank">
+                        <!-- <a href="#" class="pic" target="_blank">
                             <img
                                 src="https://mercrt-fd.zol-img.com.cn/t_s80x60/g2/M00/08/0D/ChMlWVx1AHOIE0qAAAGJEoP6Y8QAAIdOQGGMGsAAYkq725.jpg">
-                        </a>
+                        </a> -->
                         <!-- 商品信息 -->
-                        <div class="inforbox">
+                        <!-- <div class="inforbox">
                             <h3 class="tit">
                                 <a href="#" title="英特尔中文原装 （Intel）i5 9400F 酷睿六核 盒装CPU处理器">
                                     英特尔中文原装 （Intel）i5 9400F 酷睿六核 盒装CPU处理器
@@ -149,46 +152,46 @@
                             </div>
                             <p>颜色：中文原包</p>
                             <div class="info-con">
-                                <span>套装：官方标配</span>
+                                <span>套装：官方标配</span> -->
                                 <!-- 当鼠标悬浮到套装上时，显示此内容 -->
-                                <div class="info-help">
+                                <!-- <div class="info-help">
                                     <h5>官方标配：</h5>
                                     <p>中文原包</p>
                                 </div>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
                     <!-- 商品价格 -->
-                    <td class="car-price ">
+                    <!-- <td class="car-price ">
                         <em class="old-price">1199.00</em>
                         <em>1029.00</em>
-                    </td>
+                    </td> -->
                     <!-- 商品计数 -->
-                    <td class="count">
+                    <!-- <td class="count">
                         <div class="buynum">
                             <a href="javascript:;" class="minus">-</a>
                             <input type="text" class="amount" value="1">
                             <a href="javascript:;" class="add">+</a>
                         </div>
-                    </td>
+                    </td> -->
                     <!-- 团购倒计时 -->
-                    <td class="discount">
-                        <span class="tg">团购</span>
-                        <p class="time">
-                            <span>61</span>小时<span>39</span>分<span>10</span>秒
+                    <!-- <td class="discount"> -->
+                        <!-- <span class="tg">团购</span> -->
+                        <!-- <p class="time">
+                            --
                         </p>
-                    </td>
+                    </td> -->
                     <!-- 小计 -->
-                    <td>
+                    <!-- <td>
                         <em class="total-price">1029</em>
-                    </td>
+                    </td> -->
                     <!-- 删除 -->
-                    <td class="del">
+                    <!-- <td class="del">
                         <div class="delbox">
                             <a href="javascript:;" title="移入收藏夹">移入收藏夹</a>
-                            <a href="javascript:;" >删除</a>
+                            <a href="javascript:;">删除</a> -->
                             <!-- 点击删除按钮显示此提示 -->
-                            <div class="deltip">
+                            <!-- <div class="deltip">
                                 <p>确认要删除该商品吗？</p>
                                 <a href="javascript:;">是的</a>
                                 <a href="javascript:;">取消</a>
@@ -196,14 +199,16 @@
                             </div>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
             </table>
             <!-- 结算 -->
-            <div class="total">
-                    <span>总计（不含运费）: <em>¥</em> <em class="total-price">1029</em></span>
-                    <input class="subCart" type="button" value="去结算">
-                </div>
+            <div class="total total-footer">
+                <span class="totprice">商品总价（不含运费）: <em class="total-price">￥1029</em></span>
             </div>
+            <div class="pay">
+                <input class="subCart subPay" type="button" value="去结算">
+            </div>
+        </div>
     </section>
 </body>
 
