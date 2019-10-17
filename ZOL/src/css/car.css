@@ -314,7 +314,10 @@
 .pay{
     float: left;
     width: 100%;
-
+    height: 35px;
+    border: 1px solid #e3e3e3;
+    line-height: 35px;
+    padding: 0 0 0 12px;
 }
 .subPay{
     width: 130px;
@@ -322,4 +325,17 @@
     font-size: 18px;
     background-position: 0 -113px;
     font-weight: 500;
+}
+
+/* 批量删除 */
+.pay .delt {
+    color: #134ba0;
+    float: left;
+}
+.pay .go{
+    color: #134ba0;
+    float: right;
+}
+.pay a:hover {
+    color: #f60;
 }

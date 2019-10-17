@@ -1,5 +1,5 @@
 require(['config'], function () {
-    require(['jquery'], function () {
+    require(['jquery','jqcookie'], function () {
         registry();
         
     })
@@ -18,7 +18,7 @@ function registry() {
     const $wropass = $('#registry-form .wropass');// 密码错误提示
     const $wrorepeat = $('#registry-form .wrorepeat');// 再次确认密码错误提示
     const $agree = $('.agree .chose'); // 阅读协议复选框
-    const $btn = $('#registry-form .submit-btn')// 提交按钮
+    const $btn = $('#registry-form')// 提交按钮
     let passlock = true;
     let tellock = true;
     let paswdlock = true;
@@ -30,17 +30,32 @@ function registry() {
     $phone.on('focus', function () {
         $(this).css('border-color', '#CC0000')
     })
-
     $phone.on('blur', function () {
         let reg = /^1[3456789]\d{9}$/;
-        if ($(this)[0].value !== '') {
+        if ($(this).val() !== '') {
             if (reg.test($(this).val())) {
-                $wrophone.css({
-                    'background-position-y': '-148px',
-                    'display': 'block'
+                $.ajax({
+                    type:'post',
+                    url:'http://10.31.155.61/program_zol/ZOL/php/registry.php',
+                    data:{
+                        userphone:$phone.val()
+                    }
+                }).done(function(isExist){
+                    if(!isExist){
+                        $wrophone.css({
+                            'background-position-y': '-148px',
+                            'display': 'block'
+                        })
+                            .html('');
+                        tellock = true;
+                    }else{
+                        $wrophone.css({
+                            'background-position-y': '-184px',
+                            'display': 'block',
+                        }).html('手机号已注册');
+                        tellock = false;
+                    }
                 })
-                    .html('');
-                tellock = true;
             } else {
                 $wrophone.css({
                     'background-position-y': '-184px',
@@ -72,7 +87,7 @@ function registry() {
         $(this).css('border-color', '#c00000');
     })
     $incode.on('blur', function () {
-        if ($(this)[0].value !== '') {
+        if ($(this).val() !== '') {
             if($code.html() === $incode.val()){
                 $wrocode.css({
                     'background-position-y': '-148px',
@@ -102,11 +117,11 @@ function registry() {
     $password.on('focus', function () {
         $(this).css('border-color', '#c00000');
     })
-
+    
     $password.on('blur', function () {
         let regNum = /^[0-9]+$/g;
-        if ($(this)[0].value !== '') {
-            if ($(this)[0].value.length >= 6 && $(this)[0].value.length <= 16) {
+        if ($(this).val() !== '') {
+            if ($(this).val().length >= 6 && $(this).val().length <= 16) {
                 if (regNum.test($(this).val())) {
                     $wropass.css({
                         'background-position-y': '-184px',
@@ -140,7 +155,6 @@ function registry() {
             paswdlock = false;
         }
         $(this).css('border-color', '#CCC');
-        passText = $(this).val();
     })
 
     // 确认密码
@@ -148,8 +162,8 @@ function registry() {
         $(this).css('border-color', '#c00000');
     })
     $repass.on('blur', function () {
-        if ($(this)[0].value !== '') {
-            if ($(this).val() === passText) {
+        if ($(this).val() !== '') {
+            if ($(this).val() === $password.val()) {
                 $wrorepeat.css({
                     'background-position-y': '-148px',
                     'display': 'block',
@@ -178,22 +192,66 @@ function registry() {
     })
 
     // 用户协议是否打钩
-    // if($('.agree input:checked')){
-    //     console.log(1)
-    // }else{
-    //     console.log(2)
-    // }
-    // $agree.on('click',function(){
-    //     if($agree.prop('checked',true)){
-    //         console.log(1)
-    //     }else{
-    //         console.log(2)
-    //     }
-    // })
+    $agree.on('click',function(){
+        if($agree.prop('checked')){
+            agreelock =true;
+        }else{
+            agreelock=false;
+        }
+    })
 
+    // 点击提交
+    $btn.on('submit',function(){
+        // 判断手机号码是否为空
+        if($phone.val()===''){
+            $wrophone.css({
+                'background-position-y': '-184px',
+                'display': 'block'
+            })
+                .html('手机号码不能为空');
+            tellock = false;
+        }
+        // 判断验证码是否为空
+        if($incode.val()===''){
+            $wrocode.css({
+                'background-position-y': '-184px',
+                'display': 'block'
+            })
+                .html('请填写验证码');
+            codelock = false;
+        }
+        // 判断密码是否为空
+        if($password.val()===''){
+            $wropass.css({
+                'background-position-y': '-184px',
+                'display': 'block',
+                'color': '#ff3333'
+            })
+                .html('请填写密码');
+            paswdlock = false;
+        }
+        //判断确认密码是否为空
+        if($repass.val()===''){
+            $wrorepeat.css({
+                'background-position-y': '-184px',
+                'display': 'block',
+                'color': '#ff3333'
+            })
+                .html('请填写确认密码');
+            paswdlock = false;
+        }
 
-
-
+        //判断阅读协议是否打钩
+        if(!agreelock){
+            alert('请先阅读用户协议');
+            return false;
+        }else{
+            if(!passlock || !tellock || !paswdlock || !codelock || !agreelock){
+                return false;
+            }
+        }
+        
+    })
 }
 
 

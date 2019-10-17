@@ -18,7 +18,7 @@
     <header class="top">
         <div class="top-wrap">
             <!-- 登录、注册 -->
-            <div class="login">
+            <div class="login quit">
                 <span>
                     <a href="index.html" class="zc-home">商城首页</a>
                 </span>
@@ -29,6 +29,17 @@
                     <a href="registry.html" class="zc-registry">免费注册</a>
                 </span>
             </div>
+            <div class="login logon">
+                    <span>
+                        <a href="javascript:;" class="zc-home">商城首页</a>
+                    </span>
+                    <span>
+                        Hi~欢迎来到Z商城，请<a href="login.html" class="zc-login user"></a>
+                    </span>
+                    <span>
+                        <a href="javascript:;" class="zc-registry exit">退出</a>
+                    </span>
+                </div>
             <!-- 快捷菜单 -->
             <ul class="menu">
                 <li>
@@ -48,7 +59,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#">购物车0件</a>
+                    <a href="#">购物车<i class="buynum">0</i>件</a>
                 </li>
                 <li>
                     <a href="#">帮助中心</a>
@@ -97,7 +108,7 @@
     <section class="car-wrap">
         <!-- 购物车状态 -->
         <div class="car-state clear_fix">
-            <p>购物车状态<span>(0/30)</span></p>
+            <p>购物车状态(<span></span>/30)</p>
             <!-- 总计 -->
             <div class="total">
                 <input class="subCart" type="button" value="去结算">
@@ -116,32 +127,25 @@
                     <th class="th-5">小计（元）</th>
                     <th class="th-6">操作</th>
                 </tr>
-                <!-- 店铺
+
                 <tr>
                     <td class="store">
                         <div class="shopname">
-                            <input type="radio" checked> 店铺： -->
-                            <!-- <a href="#">锦鑫科技电脑专营店</a> -->
-                        <!-- </div>
-                        <div class="contact">
-                            <a class="security">&nbsp;</a>
-                        </div>
-                        <div class="contact">
-                            <a class="security qq">&nbsp;</a>
+                            <input type="checkbox" checked id="all"> <label for="all">全选</label>
                         </div>
                     </td>
-                </tr> -->
+                </tr>
                 <!-- 商品列表 -->
                 <!-- <tr>
                     <td class="car-items">
                         <input type="checkbox" checked> -->
-                        <!-- 商品图片 -->
-                        <!-- <a href="#" class="pic" target="_blank">
+                <!-- 商品图片 -->
+                <!-- <a href="#" class="pic" target="_blank">
                             <img
                                 src="https://mercrt-fd.zol-img.com.cn/t_s80x60/g2/M00/08/0D/ChMlWVx1AHOIE0qAAAGJEoP6Y8QAAIdOQGGMGsAAYkq725.jpg">
                         </a> -->
-                        <!-- 商品信息 -->
-                        <!-- <div class="inforbox">
+                <!-- 商品信息 -->
+                <!-- <div class="inforbox">
                             <h3 class="tit">
                                 <a href="#" title="英特尔中文原装 （Intel）i5 9400F 酷睿六核 盒装CPU处理器">
                                     英特尔中文原装 （Intel）i5 9400F 酷睿六核 盒装CPU处理器
@@ -153,45 +157,45 @@
                             <p>颜色：中文原包</p>
                             <div class="info-con">
                                 <span>套装：官方标配</span> -->
-                                <!-- 当鼠标悬浮到套装上时，显示此内容 -->
-                                <!-- <div class="info-help">
+                <!-- 当鼠标悬浮到套装上时，显示此内容 -->
+                <!-- <div class="info-help">
                                     <h5>官方标配：</h5>
                                     <p>中文原包</p>
                                 </div>
                             </div>
                         </div>
                     </td> -->
-                    <!-- 商品价格 -->
-                    <!-- <td class="car-price ">
+                <!-- 商品价格 -->
+                <!-- <td class="car-price ">
                         <em class="old-price">1199.00</em>
                         <em>1029.00</em>
                     </td> -->
-                    <!-- 商品计数 -->
-                    <!-- <td class="count">
+                <!-- 商品计数 -->
+                <!-- <td class="count">
                         <div class="buynum">
                             <a href="javascript:;" class="minus">-</a>
                             <input type="text" class="amount" value="1">
                             <a href="javascript:;" class="add">+</a>
                         </div>
                     </td> -->
-                    <!-- 团购倒计时 -->
-                    <!-- <td class="discount"> -->
-                        <!-- <span class="tg">团购</span> -->
-                        <!-- <p class="time">
+                <!-- 团购倒计时 -->
+                <!-- <td class="discount"> -->
+                <!-- <span class="tg">团购</span> -->
+                <!-- <p class="time">
                             --
                         </p>
                     </td> -->
-                    <!-- 小计 -->
-                    <!-- <td>
+                <!-- 小计 -->
+                <!-- <td>
                         <em class="total-price">1029</em>
                     </td> -->
-                    <!-- 删除 -->
-                    <!-- <td class="del">
+                <!-- 删除 -->
+                <!-- <td class="del">
                         <div class="delbox">
                             <a href="javascript:;" title="移入收藏夹">移入收藏夹</a>
                             <a href="javascript:;">删除</a> -->
-                            <!-- 点击删除按钮显示此提示 -->
-                            <!-- <div class="deltip">
+                <!-- 点击删除按钮显示此提示 -->
+                <!-- <div class="deltip">
                                 <p>确认要删除该商品吗？</p>
                                 <a href="javascript:;">是的</a>
                                 <a href="javascript:;">取消</a>
@@ -206,7 +210,9 @@
                 <span class="totprice">商品总价（不含运费）: <em class="total-price">￥1029</em></span>
             </div>
             <div class="pay">
+                <a href="javascript:;" class="delt">批量删除</a>
                 <input class="subCart subPay" type="button" value="去结算">
+                <a href="zol.html" class="go">继续购物</a>
             </div>
         </div>
     </section>

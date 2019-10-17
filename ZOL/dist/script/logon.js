@@ -1,0 +1,1 @@
+"use strict";function login(){}require(["config"],function(){require(["jquery","jqcookie"],function(){login()})});

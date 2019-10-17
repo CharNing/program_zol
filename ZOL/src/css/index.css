@@ -90,17 +90,25 @@
     color: #f74b44;
 }
 /* 登录 */
-.nav-content .nav-right .login {
+ .nav-right .login{
     color: #f74b44;
     padding: 0 10px;
     font-size: 14px;
 }
 
 /* 注册 */
-.nav-content .nav-right .registry {
+ .nav-right .registry{
     border-left: 1px solid #ccc;
     padding: 0 10px;
     font-size: 14px;
+}
+/* 退出按钮 */
+.logon{
+    display: none;
+
+}
+.user{
+    color: #333;
 }
 
 /* 分类区 */

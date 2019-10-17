@@ -1,1 +1,1 @@
-require(['render','effect']); // 调用render.js模块，调用effect.js模块
+require(['render','effect','isLogin']); // 调用render.js模块，调用effect.js模块

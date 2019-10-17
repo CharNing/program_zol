@@ -25,7 +25,6 @@ function fdj() {
                 'visibility': 'visible',
                 'width': sfWidth,
                 'height': sfHeight,
-
             });
             $bf.css({
                 'visibility': 'visible',

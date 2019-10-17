@@ -1,1 +1,1 @@
-"use strict";require(["detailsRender","detaileffect","car"]);
+"use strict";require(["detailsRender","detaileffect","car","isLogin"]);

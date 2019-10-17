@@ -24,11 +24,11 @@ function render() {
         let wordhtml = '';
         $.each(wordData, function (index, value) {
             wordhtml += `
-                    <li>
-                        <a href="#">
-                            <img src="${value.url}"" alt="">
-                        </a>
-                    </li>
+                <li>
+                    <a href="#">
+                        <img src="${value.url}"" alt="">
+                    </a>
+                </li>
             `
         })
         $hotWord.html(wordhtml);

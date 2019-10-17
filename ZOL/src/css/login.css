@@ -34,13 +34,14 @@ body{
     padding: 0 85px 0 0;
 }
 /* 登录框切换 */
-.login-form .main .login-box .tab {
+ .login-box .tab {
     width: 100%;
     height: 35px;
     padding: 20px 0 0;
     border-bottom: 2px solid #e6e6e6;
 }
-.login-form .main .login-box .tab h3{
+/* 用户登录 */
+ .login-box .tab h3{
     width: 50%;
     float: left;
     height: 100%;
@@ -52,25 +53,48 @@ body{
     font-size: 18px;
     font-weight: 500;
 }
+.login-box .tab .cur-login{
+    border-bottom: 2px solid #de3030;
+    color: #333;
+}
+
 /* 登录选项 */
-.login-form .main .login-box .login-select .login-content{
+.login-select .login-content{
     width: 100%;
     padding: 25px 0 0;
+    position: relative;
 }
-.login-form .main .login-box .login-select .login-content .item{
+/* 错误提示 */
+#login-wrong-tips{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0 0 25px;
+    width: 263px;
+    height: 22px;
+    line-height: 20px;
+    color: #f33;
+    border: 1px solid #f99;
+    background:url(../img/bg.png) -270px -89px no-repeat #fff2f2 ;
+    display: none;
+    text-align: center;
+}
+
+.item{
     width: 278px;
     height: 22px;
     margin: 0 0 10px;
     padding: 8px 5px;
     border: 1px solid #ccc;
 }
-.login-form .main .login-box .login-select .login-content .item input{
+.login-content .item input{
     width: 100%;
     height: 100%;
     border: 0;
     font-size: 14px;
+    outline: none;
 }
-.login-form .main .login-box .login-select .login-other .phone{
+.login-other .phone{
     display: block;
     float: left;
     padding: 0 0 0 17px;
@@ -78,13 +102,13 @@ body{
     color: #333;
     background: url(../img/bg.png) -276px -112px no-repeat;
 }
-.login-form .main .login-box .login-select .login-other .forget{
+.login-other .forget{
     float: right;
     color: #134ba0;
     line-height: 28px;
 }
 /* 登录按钮 */
-.login-form .main .login-box .login-select .btn-login{
+.login-select .btn-login{
     margin: 10px 0;
     width: 100%;
     height: 40px;
@@ -92,28 +116,32 @@ body{
     color: #fff;
     background: url(../img/bg.png) 0 0 no-repeat;
     border: 0;
+    cursor: pointer;
+}
+.login-select .btn-login:hover {
+    background-position-y: -41px;
 }
 /* 合作账号登录 */
-.login-form .main .login-box .login-select .parter{
+.login-select .parter{
     width: 100%;
     height: 18px;
     margin: 10px 0;
     text-align: center;
     color: #666;
 }
-.login-form .main .login-box .login-select .parter .xian{
+.login-select .parter .xian{
     float: left;
     height: 1px;
     background: #f0f0f0;
     width: 100px;
     margin-top: 7px;
 }
-.login-form .main .login-box .login-select .parter p{
+.login-select .parter p{
     float: left;
     margin: 0 9px;
 }
 /* 第三方登录账号 */
-.login-form .main .login-box .login-select .login-foot a{
+.login-select .login-foot a{
     display: block;
     float: left;
     width: 38px;
@@ -150,11 +178,4 @@ body{
 }
 .login-foot .bd:hover{
     background: url(../img/bg.png) -117px -120px no-repeat;
-}
-/* 底部 */
-footer {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
 }

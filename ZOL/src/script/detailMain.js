@@ -1,1 +1,1 @@
-require(['detailsRender','detaileffect','car']);
+require(['detailsRender','detaileffect','car','isLogin']);

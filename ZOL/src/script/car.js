@@ -1,45 +1,42 @@
 require(['config'], function () {
     require(['jquery', 'jqcookie'], function () {
         getcookie();
+        selectAll();
     })
 })
 
 // 获取cookie
 function getcookie() {
-    const $shop = $('.order-table');
-    const phpurl = 'http://10.31.155.61/program_zol/ZOL/php/';
+    const $buynum = $('.menu .buynum');
+    const $carState = $('.car-state p span');
     // 判断cookie是否存在,存在就渲染页面
     if ($.cookie('goodsid') && $.cookie('goodsnum')) {
         let arrsid = $.cookie('goodsid').split(',');
         let arrnum = $.cookie('goodsnum').split(',');
         for (let i = 0; i < arrsid.length; i++) {
-            // render(arrsid[i], arrnum[i]);
+            render(arrsid[i], arrnum[i]);
+        }
+        $carState.html(arrsid.length);
+        $buynum.html(arrsid.length);
+        console.log($buynum)
+    }
 
-            $.ajax({
-                type: 'get',
-                url: phpurl + 'details.php',
-                dataType: 'json',
-                data: {
-                    id: arrsid[i],
-                }
-            }).done(function (data) {
-                // console.log(data)
-                let trhtml = '';
-                trhtml += `
-                <tr>
-                <td class="store">
-                    <div class="shopname">
-                        <input type="radio" checked> 店铺：
-                        <a href="#">${data.store}</a>
-                    </div>
-                    <div class="contact">
-                        <a class="security">&nbsp;</a>
-                    </div>
-                    <div class="contact">
-                        <a class="security qq">&nbsp;</a>
-                    </div>
-                </td>
-            </tr>
+
+}
+
+// 渲染数据
+function render(arrsid, arrnum) {
+    const $shop = $('.order-table');
+    const phpurl = 'http://10.31.155.61/program_zol/ZOL/php/';
+    $.ajax({
+        type: 'get',
+        url: phpurl + 'details.php',
+        dataType: 'json',
+        data: {
+            id: arrsid,
+        }
+    }).done(function (data) {
+        let trhtml = `
             <tr>
                 <td class="car-items">
                     <input type="checkbox" checked>
@@ -72,7 +69,7 @@ function getcookie() {
                 <td class="count">
                     <div class="buynum">
                         <a href="javascript:;" class="minus">-</a>
-                        <input type="text" class="amount" value="${arrnum[i]}">
+                        <input type="text" class="amount" value="${arrnum}">
                         <a href="javascript:;" class="add">+</a>
                     </div>
                 </td>
@@ -82,11 +79,9 @@ function getcookie() {
                         --
                     </p>
                 </td>
-                <!-- 小计 -->
                 <td>
-                    <em class="total-price">${arrnum[i] * data.newprice}</em>
+                    <em class="total-price">${arrnum * data.newprice}</em>
                 </td>
-                <!-- 删除 -->
                 <td class="del">
                     <div class="delbox">
                         <a href="javascript:;" title="移入收藏夹">移入收藏夹</a>
@@ -102,35 +97,19 @@ function getcookie() {
                 </td>
             </tr>
                 `;
-                $shop.append(trhtml);
-            })
-        }
-    }
+            $shop.children().append(trhtml);
+    })
+    
 }
 
-// 渲染数据
-// function render(arrsid, arrnum) {
-//     const $shopname = $('.shopname');
-//     const phpurl = 'http://10.31.155.61/program_zol/ZOL/php/';
-//     $.ajax({
-//         type:'get',
-//         url: phpurl + 'details.php',
-//         dataType: 'json',
-//         data:{
-//             id:arrsid,
-//         }
-//     }).done(function (data) {
-//         console.log(data)
-//         $.each(data,function(index,value){
-//             console.log(value.sid)
-//             // if(value.sid == sid){
-//             //     $shopname.append(`<a href="#">${data.store}</a>`)
-//             // }
-//         })
+//全选效果
 
-
-//     })
-// }
+function selectAll(){
+    const $all = $('.order-table input');
+    const $checkbox = $('.car-items checkbox');
+    console.log($all)
+    
+}
 
 
 
