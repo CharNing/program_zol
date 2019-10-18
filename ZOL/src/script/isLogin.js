@@ -4,27 +4,25 @@ require(['config'],function(){
     })
 })
 
-    
+// 登录模块
 function isLogin(){
     const $loginState = $('.logon'); //登录后的状态
     const $user = $('.user');
     const $quitState = $('.quit');//退出后的状态
     //判断cookie是否存在用户
     if($.cookie('telphone')){
-        $loginState.css('display','block');
+        $loginState.show();
         $user.html($.cookie('telphone'));
-        $quitState.css('display','none');
+        $quitState.hide();
     }else{
-        $loginState.css('display','none');
-        $quitState.css('display','block');
+        $loginState.hide();
+        $quitState.show();
     }
 
     // 点击退出
     $loginState.find('.exit').on('click',function(){
         $.cookie('telphone',0,{expires:-1});
-        $loginState.css('display','none');
-        $quitState.css('display','block');
-
-
+        $loginState.hide();
+        $quitState.show();
     })
 }

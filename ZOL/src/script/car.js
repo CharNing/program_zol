@@ -1,7 +1,6 @@
 require(['config'], function () {
     require(['jquery', 'jqcookie'], function () {
         getcookie();
-        selectAll();
     })
 })
 
@@ -18,10 +17,7 @@ function getcookie() {
         }
         $carState.html(arrsid.length);
         $buynum.html(arrsid.length);
-        console.log($buynum)
     }
-
-
 }
 
 // 渲染数据
@@ -39,7 +35,7 @@ function render(arrsid, arrnum) {
         let trhtml = `
             <tr>
                 <td class="car-items">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" class="choose" checked>
                     <a href="#" class="pic" target="_blank">
                         <img src="${data.url}">
                     </a>
@@ -98,18 +94,35 @@ function render(arrsid, arrnum) {
             </tr>
                 `;
             $shop.children().append(trhtml);
+           
+            // 全选效果
+            const $allSelect = $('#all');
+            const $choose = $('.choose').not('#all');
+            // 点击全选，全部选中
+            $allSelect.on('click',function(){
+                if($(this).prop('checked')){
+                    $choose.prop('checked',true);
+                }else{
+                    $choose.prop('checked',false);
+                }
+            })
+            // 有一个没选择，全选不选中
+            let chooseNum = $choose.length;
+            $choose.on('click',function(){
+                if($('.car-items input:checked').length===chooseNum){
+                    $allSelect.prop('checked',true);
+                }else{
+                    $allSelect.prop('checked',false);                 
+                }
+            })
+
+
+            
+
     })
-    
 }
 
-//全选效果
 
-function selectAll(){
-    const $all = $('.order-table input');
-    const $checkbox = $('.car-items checkbox');
-    console.log($all)
-    
-}
 
 
 
