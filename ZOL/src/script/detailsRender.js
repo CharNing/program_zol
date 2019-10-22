@@ -6,7 +6,6 @@ require(['config'], function () {
 
 function detailrender() {
     let sid = location.search.substring(1).split('=')[1]; // 获取地址栏里的sid
-    // console.log(sid)
     const $showBox = $('.ulist .showBox'); // 展示栏外框
     const $title = $('.infor .inf-title');// 标题
     const $subhead = $('.infor .inf-title .subhead')// 副标题

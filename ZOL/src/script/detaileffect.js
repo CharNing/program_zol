@@ -93,7 +93,7 @@ function car() {
     let arrsid = [];// 放置sid
     let arrnum = [];// 放置商品数量
 
-    
+
     // 判断是否存在商品的sid和数量
     if ($.cookie('goodsid') && $.cookie('goodsnum')) {
         arrsid = $.cookie('goodsid').split(',');
@@ -125,22 +125,27 @@ function car() {
 
     // 点击加入购物车
     $carbtn.on('click', function () {
-        if (arrsid.indexOf(sid) !== -1) {//表示已存在此商品
-            let index = arrsid.indexOf(sid);
-            arrnum[index] = parseInt(arrnum[index]) + parseInt($buyNum.val());
-            if (arrnum[index] < $limit.html()) { // 判断添加的数量是否超过限购数量
-                $.cookie('goodsnum', arrnum.toString(), { expires: 30 });
-            }else{
-                alert('超过限购数量');
-            }
+        if ($.cookie('telphone')) {
+            if (arrsid.indexOf(sid) !== -1) {//表示已存在此商品
+                let index = arrsid.indexOf(sid);
+                arrnum[index] = parseInt(arrnum[index]) + parseInt($buyNum.val());
+                if (arrnum[index] < $limit.html()) { // 判断添加的数量是否超过限购数量
+                    $.cookie('goodsnum', arrnum.toString(), { expires: 30 });
+                } else {
+                    alert('超过限购数量');
+                }
 
-        } else {// 不存在此商品，第一次添加
-            arrsid.push(sid);
-            arrnum.push($buyNum.val());
-            $.cookie('goodsid', arrsid.toString(), { expires: 30 });
-            $.cookie('goodsnum', arrnum.toString(), { expires: 30 });
+            } else {// 不存在此商品，第一次添加
+                arrsid.push(sid);
+                arrnum.push($buyNum.val());
+                $.cookie('goodsid', arrsid.toString(), { expires: 30 });
+                $.cookie('goodsnum', arrnum.toString(), { expires: 30 });
+            }
+            alert('商品添加成功');
+        }else{
+            alert('请先登录')
         }
-        alert('商品添加成功');
+
     })
 
 
