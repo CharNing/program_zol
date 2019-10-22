@@ -140,6 +140,7 @@ function car() {
             $.cookie('goodsid', arrsid.toString(), { expires: 30 });
             $.cookie('goodsnum', arrnum.toString(), { expires: 30 });
         }
+        alert('商品添加成功');
     })
 
 

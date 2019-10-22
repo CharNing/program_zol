@@ -18,6 +18,14 @@ function getcookie() {
         $carState.html(arrsid.length);
         $buynum.html(arrsid.length);
     }
+
+    // 点击增加 或 减少按钮，相应的数量增加或减少
+    changeNum();
+
+    // 删除
+    del();
+    // 清空购物车
+    clear();
 }
 
 // 渲染数据
@@ -33,7 +41,7 @@ function render(arrsid, arrnum) {
         }
     }).done(function (data) {
         let trhtml = `
-            <tr>
+            <tr class = 'goodslist'>
                 <td class="car-items">
                     <input type="checkbox" class="choose" checked>
                     <a href="#" class="pic" target="_blank">
@@ -60,7 +68,7 @@ function render(arrsid, arrnum) {
                 </td>
                 <td class="car-price ">
                     <em class="old-price">${data.oldprice}</em>
-                    <em>${data.newprice}</em>
+                    <em class='new-price'>${data.newprice}</em>
                 </td>
                 <td class="count">
                     <div class="buynum">
@@ -81,46 +89,153 @@ function render(arrsid, arrnum) {
                 <td class="del">
                     <div class="delbox">
                         <a href="javascript:;" title="移入收藏夹">移入收藏夹</a>
-                        <a href="javascript:;">删除</a>
+                        <a href="javascript:;" class = 'remove'>删除</a>
                         <!-- 点击删除按钮显示此提示 -->
                         <div class="deltip">
                             <p>确认要删除该商品吗？</p>
-                            <a href="javascript:;">是的</a>
-                            <a href="javascript:;">取消</a>
+                            <a href="javascript:;" class='y'>是的</a>
+                            <a href="javascript:;" class='n'>取消</a>
                             <i></i>
                         </div>
                     </div>
                 </td>
             </tr>
                 `;
-            $shop.children().append(trhtml);
-           
-            // 全选效果
-            const $allSelect = $('#all');
-            const $choose = $('.choose').not('#all');
-            // 点击全选，全部选中
-            $allSelect.on('click',function(){
-                if($(this).prop('checked')){
-                    $choose.prop('checked',true);
-                }else{
-                    $choose.prop('checked',false);
-                }
-            })
-            // 有一个没选择，全选不选中
-            let chooseNum = $choose.length;
-            $choose.on('click',function(){
-                if($('.car-items input:checked').length===chooseNum){
-                    $allSelect.prop('checked',true);
-                }else{
-                    $allSelect.prop('checked',false);                 
-                }
-            })
+        $shop.children().append(trhtml);
 
 
-            
+    }).done(function () {
+        // 全选效果
+        const $allSelect = $('#all');
+        const $choose = $('.choose').not('#all');
+        // 点击全选，全部选中
+        $allSelect.on('click', function () {
+            if ($(this).prop('checked')) {
+                $choose.prop('checked', true);
+            } else {
+                $choose.prop('checked', false);
+            }
+        })
+        // 有一个没选择，全选不选中
+        let chooseNum = $choose.length;
+        $choose.on('click', function () {
+            if ($('.car-items input:checked').length === chooseNum) {
+                $allSelect.prop('checked', true);
+            } else {
+                $allSelect.prop('checked', false);
+            }
+        })
 
     })
 }
+//  点击增加 或 减少按钮，相应的数量增加或减少
+function changeNum() {
+    const $table = $('.order-table');
+    let sum = null;
+    let goodsindex = null;
+
+    $table.delegate('a', 'click', function (event) {
+        let arrgoodsnum = $.cookie('goodsnum').split(',');
+        let $price = $(this).parents('.count').prev().children('.new-price').html();
+        let $total = $(this).parents('.count').siblings().children('.total-price');
+        var $target = $(event.target);
+        if ($target.hasClass('add')) {
+            sum = $(this).prev().val();
+            goodsindex = arrgoodsnum.indexOf(sum);
+            ++sum;
+            if (sum < 99) {
+                $(this).prev().val(sum);
+            } else {
+                sum = 99;
+                $(this).prev().val(sum);
+            }
+        }
+        if ($target.hasClass('minus')) {
+            sum = $(this).next().val();
+            goodsindex = arrgoodsnum.indexOf(sum);
+            --sum;
+            if (sum > 0) {
+                $(this).next().val(sum);
+            } else {
+                sum = 1;
+                $(this).next().val(sum);
+            }
+        }
+
+        $total.html($price *sum);
+        arrgoodsnum[goodsindex] = sum;
+        $.cookie('goodsnum', arrgoodsnum.toString(), { expires: 30 })
+    })
+
+}
+
+// 点击删除按钮，删除相应的商品
+function del() {
+    const $table = $('.order-table');
+    $table.delegate('a', 'click', function (event) {
+        var $target = $(event.target);
+        if ($target.hasClass('remove')) {
+            $(this).next().show();
+        }
+
+        $('.deltip').delegate('a', 'click', function (event) {
+            var $target = $(event.target);
+            if ($target.hasClass('y')) {
+                let nownum = $(this).parents('tr').find($('.amount')).val();  // 当前的商品数量
+                let arrnum = $.cookie('goodsnum').split(','); // cookie中的数量
+                let index = arrnum.indexOf(nownum); // cookie中对应的索引
+                let arrsid = $.cookie('goodsid').split(','); // cookie中的sid
+
+                //对数组重新赋值
+                arrnum[index] = '';
+                arrnum = arrnum.filter((value) => {
+                    return value !== '';
+                });
+                arrsid[index] = '';
+                arrsid = arrsid.filter((value) => {
+                    return value !== '';
+                })
+                $.cookie('goodsid', arrsid.toString(), { expires: 30 });
+                $.cookie('goodsnum', arrnum.toString(), { expires: 30 });
+
+                // 如果全部删除了，就清空cookie
+                if (arrnum == '') {
+                    $.cookie('goodsid', '', { expires: -1 });
+                    $.cookie('goodsnum', '', { expires: -1 });
+                }
+
+                $(this).parents('tr').remove(); // 删除商品列表
+
+            } else if ($target.hasClass('n')) {
+                $(this).parent().hide();
+            }
+        })
+    })
+}
+
+
+// 清空购物车
+function clear() {
+    const $allSelect = $('#all');
+    let $deltAll = $('.delt');
+    $deltAll.on('click', function () {
+        if ($allSelect.prop('checked')) {
+            let sure = confirm('确认要清空购物车？')
+            if (sure) {
+                $.cookie('goodsid', '', { expires: -1 });
+                $.cookie('goodsnum', '', { expires: -1 });
+                $('.goodslist').remove();
+                $('.account').html(0);
+                $('.car-state p span').html(0)
+            }
+        } else {
+            alert('请选中全部商品');
+        }
+    })
+
+}
+
+
 
 
 
