@@ -13,7 +13,8 @@ function detailrender() {
     const $oldprice = $('.price .old');// 旧价格
     const $save = $('.price .save');// 节省多少钱
     const $shop = $('.supplier p a'); //商家名
-    // const $smallbox = $('.picbox');
+    const $smallpic = $('.small');// 小图
+    const $bigpic = $('.big');// 大图
     // const $bigbox = $('.bf');
 
 
@@ -30,8 +31,9 @@ function detailrender() {
         $('title').html(data.headline);
 
         // 小图和大图渲染
-        // $smallbox.prepend(`<img class="small" src="${data.url}" alt="${data.headline}">`);
-        // $bigbox.html(`<img class="big" src="${data.url}" alt="${data.headline}">`);
+        $smallpic.attr('src',data.url);
+        $bigpic.attr('src',data.url);
+        
         //  渲染展示的小图列表
         let dataArr = data.urls.split(',');//将对条数据转化为数组
         let showhtml = '';
@@ -64,6 +66,7 @@ function detailrender() {
         //商家名
         $shop.html(data.store);
 
+        
 
 
 

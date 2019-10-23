@@ -1,5 +1,5 @@
 require(['config'], function () {
-    require(['jquery'], function () {
+    require(['jquery', 'jqlazy'], function () {
         render();
     })
 });
@@ -44,7 +44,7 @@ function render() {
         $.each(bannerData, function (index, value) {
             banhtml = `
                 <a href="#">
-                    <img class="lazy" data-original="${value.url}" src="${value.url}"" width = "1009px" height = "377" alt="">
+                    <img src="${value.url}"" width = "1009px" height = "377" alt="">
                 </a>
             `
             $($banpic[index]).append(banhtml)
@@ -64,8 +64,9 @@ function render() {
                 hothtml += `
                     <li>
                         <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
-                            <img class="lazy" src="${value.url}" width="154px" height='154px' alt=""></a>
-                        <a href="href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
+                            <img class="lazy" data-original="${value.url}" width="154" height='154' alt="">
+                        </a>
+                        <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
                             <p class="over">${value.headline}</p>
                         </a>
                         <div class="price">
@@ -78,7 +79,7 @@ function render() {
                 hothtml += `
                     <li>
                         <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
-                            <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='154px' alt="">
+                            <img class="lazy" data-original="${value.url}" width='154' height='154' alt="">
                         </a>
                         <a href="href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
                             <p class="over">${value.headline}</p>
@@ -91,6 +92,11 @@ function render() {
             }
         })
         $hotpic.html(hothtml);
+        $(function () {
+            $("img.lazy").lazyload({
+                effect: "fadeIn" 
+            });
+        });
     })
 
     // 会买专辑
@@ -104,12 +110,17 @@ function render() {
             buyhtml += `
                     <li>
                         <a href="#">
-                            <img class='lazy' data-original="${value.url}" src="${value.url}" width='154px' height='154px' alt="">
+                            <img class='lazy' data-original="${value.url}" width='154' height='154' alt="">
                         </a>
                     </li>
             `
         })
         $buypic.html(buyhtml);
+        $(function () { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //效果方式
+            });
+        });
     })
 
     // 热门团购
@@ -123,7 +134,7 @@ function render() {
             hottghtml += `
             <li class="clear_fix">
                 <a href="http://10.31.155.61/program_zol/ZOL/dist/details.html?sid=${value.sid}" target="_blank">
-                    <img class="lazy" data-original="${value.url}" src="${value.url}" width='120px' height='90px'  alt="${value.headline}">
+                    <img class="lazy" data-original="${value.url}" width='120' height='90'  alt="${value.headline}">
                     <span class="description"><i>${value.headline}</i></span>
                 </a>
                 <p class="ad-price">
@@ -133,6 +144,11 @@ function render() {
             `
         })
         $hottgpic.html(hottghtml);
+        $(function () { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //效果方式
+            });
+        });
     })
 
     // 精选好价
@@ -148,7 +164,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" data-original="${value.url}" src="${value.url}" width = '154px' height='121px' alt="">
+                            <img class="lazy" data-original="${value.url}" width = '154' height='121' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -179,7 +195,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='121px' alt="">
+                            <img class="lazy" data-original="${value.url}" width='154' height='121' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -207,6 +223,11 @@ function render() {
             }
         })
         $cheap.html(cheaphtml);
+        $(function () { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //效果方式
+            });
+        });
     })
 
     // 达人推荐
@@ -221,7 +242,7 @@ function render() {
                 <div class="refresh-item">
                     <div class="refresh-pic">
                         <a href="#">
-                            <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='153px' alt="">
+                            <img class="lazy" data-original="${value.url}" width='154' height='153' alt="">
                         </a>
                     </div>
                     <div class="refresh-info h">
@@ -254,6 +275,11 @@ function render() {
                 `
         })
         $recommend.html(recommendhtml);
+        $(function () { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //效果方式
+            });
+        });
     })
 
     // 精选好物
@@ -268,7 +294,7 @@ function render() {
             <div class="refresh-item">
             <div class="refresh-pic">
                 <a href="#">
-                    <img class="lazy" data-original="${value.url}" src="${value.url}" width='154px' height='103px' alt="">
+                    <img class="lazy" data-original="${value.url}" width='154' height='103' alt="">
                 </a>
             </div>
             <div class="refresh-info h">
@@ -299,13 +325,15 @@ function render() {
             `
         })
         $goods.html(goodshtml);
+        $(function () { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //效果方式
+            });
+        });
     })
 
 
-
-
-
-
-
+    
 }
+
 

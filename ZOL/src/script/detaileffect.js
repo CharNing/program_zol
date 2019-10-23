@@ -90,8 +90,11 @@ function car() {
     const $addbtn = $('.amount .increase');// 增加按钮
     const $reducebtn = $('.amount .decrease')// 减少按钮
     const $limit = $('.quantity .limit');// 限购数量
+    const $car = $('.car');//购物车图标
+
     let arrsid = [];// 放置sid
     let arrnum = [];// 放置商品数量
+
 
 
     // 判断是否存在商品的sid和数量
@@ -148,9 +151,21 @@ function car() {
 
     })
 
+    //点击购物车图标，进入购物车页面
+    $car.on('click',function(){
+        if($.cookie('telphone')){
+            location.href='car.html';
+        }else{
+            alert('请先登录');
+        }
+    })
 
-
-
+    //购物车上的数量显示
+    if($.cookie('telphone')){
+        $('.num').html(arrsid.length);
+    }else{
+        $('.num').html(0);
+    }
 
 
 }
